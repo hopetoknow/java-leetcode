@@ -2,6 +2,8 @@
 
 ## Description
 
+<p>Given an integer <code>num</code>, return <em>the number of steps to reduce it to zero</em>.</p>
+
 <p>In one step, if the current number is even, you have to divide it by <code>2</code>, otherwise, you have to subtract <code>1</code> from it.</p>
 
 <p>&nbsp;</p>
