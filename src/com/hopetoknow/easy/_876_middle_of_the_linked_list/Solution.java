@@ -11,7 +11,7 @@ package com.hopetoknow.easy._876_middle_of_the_linked_list;
  * }
  */
 class Solution {
-    public static ListNode middleNode(ListNode head) {
+    public ListNode middleNode(ListNode head) {
         int nodeCounter = 0;
         ListNode tempNode = head;
 
