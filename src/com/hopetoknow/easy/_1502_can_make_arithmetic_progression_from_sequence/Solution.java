@@ -1,4 +1,4 @@
-package com.hopetoknow.medium._1502_can_make_arithmetic_progression_from_sequence;
+package com.hopetoknow.easy._1502_can_make_arithmetic_progression_from_sequence;
 
 class Solution {
     public static boolean canMakeArithmeticProgression(int[] arr) {
