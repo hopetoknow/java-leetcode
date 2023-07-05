@@ -1,21 +1,25 @@
 package com.hopetoknow.easy._383_ransom_note;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        String[] magazineLetters = magazine.split("");
-        String[] ransomNoteLetters = ransomNote.split("");
+        Map<Character, Integer> magazineLetters = new HashMap<>();
 
-        List<String> magazineLettersAsList = new ArrayList<>(Arrays.asList(magazineLetters));
+        for (char letter : magazine.toCharArray()) {
+            magazineLetters.put(letter, magazineLetters.getOrDefault(letter, 0) + 1);
+        }
 
-        for (int i = 0; i < ransomNote.length(); i++) {
-            String ransomNoteLetter = ransomNoteLetters[i];
+        for (char letter : ransomNote.toCharArray()) {
+            if (magazineLetters.containsKey(letter)) {
+                int letterFrequency = magazineLetters.get(letter);
 
-            if (magazineLettersAsList.contains(ransomNoteLetter)) {
-                magazineLettersAsList.remove(ransomNoteLetter);
+                if (letterFrequency > 1) {
+                    magazineLetters.put(letter, letterFrequency - 1);
+                } else {
+                    magazineLetters.remove(letter);
+                }
             } else {
                 return false;
             }
@@ -24,4 +28,3 @@ class Solution {
         return true;
     }
 }
-
