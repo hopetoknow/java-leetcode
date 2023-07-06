@@ -27,4 +27,20 @@ class Solution {
 
         return true;
     }
+
+    public boolean canConstruct2(String ransomNote, String magazine) {
+        int[] alphabet = new int[26];
+
+        for (char letter : magazine.toCharArray()) {
+            alphabet[letter - 'a']++;
+        }
+
+        for (char letter : ransomNote.toCharArray()) {
+            if (--alphabet[letter - 'a'] < 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
