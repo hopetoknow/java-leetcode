@@ -1,5 +1,7 @@
 package com.hopetoknow.easy._234_palindrome_linked_list;
 
+import java.util.Arrays;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -24,47 +26,19 @@ class Solution {
             return true;
         }
 
-        ListNode middleNode = head;
-
-        for (int i = 0; i < nodeCounter / 2; i++) {
-            middleNode = middleNode.next;
-        }
-
+        int[] values = new int[nodeCounter];
+        int[] reversedValues = new int[nodeCounter];
         tempNode = head;
-        ListNode prevTempNode = head;
-        int sum = 0;
-        boolean tempNodeAndAfterIt = false;
 
         for (int i = 0; i < nodeCounter; i++) {
-            if (!tempNodeAndAfterIt) {
-                sum += tempNode.val;
-            } else {
-                sum -= tempNode.val;
-            }
-
-            if (middleNode.equals(tempNode.next)) {
-                if (nodeCounter % 2 == 1) {
-                    sum += middleNode.val;
-
-                    if (tempNode.val != middleNode.next.val) {
-                        return false;
-                    }
-                } else {
-                    if (tempNode.val != middleNode.val) {
-                        return false;
-                    }
-                    if (middleNode.next != null && prevTempNode.val != middleNode.next.val) {
-                        return false;
-                    }
-                }
-
-                tempNodeAndAfterIt = true;
-            }
-
-            prevTempNode = tempNode;
+            values[i] = tempNode.val;
             tempNode = tempNode.next;
         }
 
-        return sum == 0;
+        for (int i = 0, j = nodeCounter - 1; i < nodeCounter; i++, j--) {
+            reversedValues[i] = values[j];
+        }
+
+        return Arrays.equals(values, reversedValues);
     }
 }
