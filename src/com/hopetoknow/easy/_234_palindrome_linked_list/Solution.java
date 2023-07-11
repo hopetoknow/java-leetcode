@@ -27,7 +27,6 @@ class Solution {
         }
 
         int[] values = new int[nodeCounter];
-        int[] reversedValues = new int[nodeCounter];
         tempNode = head;
 
         for (int i = 0; i < nodeCounter; i++) {
@@ -35,10 +34,12 @@ class Solution {
             tempNode = tempNode.next;
         }
 
-        for (int i = 0, j = nodeCounter - 1; i < nodeCounter; i++, j--) {
-            reversedValues[i] = values[j];
+        for (int i = 0, j = nodeCounter - 1; i < nodeCounter / 2; i++, j--) {
+            if (values[i] != values[j]) {
+                return false;
+            }
         }
 
-        return Arrays.equals(values, reversedValues);
+        return true;
     }
 }

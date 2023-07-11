@@ -1,7 +1,7 @@
 package com.hopetoknow.easy._744_find_smallest_letter_greater_than_target;
 
 class Solution {
-    public static char nextGreatestLetter(char[] letters, char target) {
+    public char nextGreatestLetter(char[] letters, char target) {
         int index = 0;
 
         int prevDelta = letters[0] - target >= 1 ? letters[0] - target : Integer.MAX_VALUE;
