@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._13_roman_to_integer;
+package com.hopetoknow._13_roman_to_integer;
 
 class Solution {
     public int romanToInt(String s) {

@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._412_fizz_buzz;
+package com.hopetoknow._412_fizz_buzz;
 
 import java.util.ArrayList;
 import java.util.List;

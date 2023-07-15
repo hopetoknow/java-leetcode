@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._876_middle_of_the_linked_list;
+package com.hopetoknow._234_palindrome_linked_list;
 
 public class ListNode {
     int val;

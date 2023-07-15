@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._1672_richest_customer_wealth;
+package com.hopetoknow._1672_richest_customer_wealth;
 
 import java.util.Arrays;
 

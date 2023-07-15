@@ -1,4 +1,4 @@
-package com.hopetoknow.medium._1318_minimum_flips_to_make_a_or_b_equal_to_c;
+package com.hopetoknow._1318_minimum_flips_to_make_a_or_b_equal_to_c;
 
 class Solution {
     public int minFlips(int a, int b, int c) {

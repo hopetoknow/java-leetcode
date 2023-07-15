@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._234_palindrome_linked_list;
+package com.hopetoknow._234_palindrome_linked_list;
 
 /**
  * Definition for singly-linked list.

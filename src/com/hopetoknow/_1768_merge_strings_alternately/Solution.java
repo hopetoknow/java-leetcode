@@ -1,4 +1,4 @@
-package com.hopetoknow.easy._1768_merge_strings_alternately;
+package com.hopetoknow._1768_merge_strings_alternately;
 
 class Solution {
     public String mergeAlternately(String word1, String word2) {
