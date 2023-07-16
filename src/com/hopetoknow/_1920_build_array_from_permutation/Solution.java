@@ -11,4 +11,18 @@ class Solution {
 
         return answer;
     }
+
+    public static int[] buildArray2(int[] nums) {
+        int length = nums.length;
+
+        for (int i = 0; i < length; i++) {
+            nums[i] = nums[i] + length * (nums[nums[i]] % length);
+        }
+
+        for (int i = 0; i < length; i++) {
+            nums[i] /= length;
+        }
+
+        return nums;
+    }
 }
