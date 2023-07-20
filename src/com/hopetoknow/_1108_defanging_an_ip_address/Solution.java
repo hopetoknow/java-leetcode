@@ -26,5 +26,22 @@ class Solution {
 
         return sb.toString();
     }
+
+    public String defangIPaddr5(String address) {
+        char[] result = new char[address.length() + 6]; // +6 to account for "[.]" replacing each dot
+        int index = 0;
+
+        for (char c : address.toCharArray()) {
+            if (c == '.') {
+                result[index++] = '[';
+                result[index++] = '.';
+                result[index++] = ']';
+            } else {
+                result[index++] = c;
+            }
+        }
+
+        return new String(result);
+    }
 }
 
