@@ -11,4 +11,23 @@ class Solution {
 
         return answer;
     }
+
+    public int[] shuffle2(int[] nums, int n) {
+        int length = nums.length;
+        int max = 1001;
+
+        for (int i = n; i < length; i++) {
+            nums[i] = (nums[i] * max) + nums[i - n];
+        }
+
+        int index = 0;
+
+        for (int i = n; i < length; i++) {
+            nums[index] = nums[i] % max;
+            nums[index + 1] = nums[i] / max;
+            index += 2;
+        }
+
+        return nums;
+    }
 }
