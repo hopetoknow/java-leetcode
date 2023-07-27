@@ -14,4 +14,18 @@ class Solution {
 
         return counter;
     }
+
+    public int finalValueAfterOperations2(String[] operations) {
+        int counter = 0;
+
+        for (String operation : operations) {
+            if (operation.charAt(1) == '+') {
+                counter++;
+            } else {
+                counter--;
+            }
+        }
+
+        return counter;
+    }
 }
