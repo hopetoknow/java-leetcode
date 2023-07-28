@@ -28,4 +28,14 @@ class Solution {
 
         return counter;
     }
+
+    public int finalValueAfterOperations3(String[] operations) {
+        int counter = 0;
+
+        for (String operation : operations) {
+            counter += (44 - operation.charAt(1));
+        }
+
+        return counter;
+    }
 }
