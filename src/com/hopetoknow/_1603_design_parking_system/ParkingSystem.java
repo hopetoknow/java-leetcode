@@ -43,3 +43,15 @@ class ParkingSystem {
  * ParkingSystem obj = new ParkingSystem(big, medium, small);
  * boolean param_1 = obj.addCar(carType);
  */
+
+class ParkingSystem2 {
+    private int[] count;
+
+    public ParkingSystem2(int big, int medium, int small) {
+        count = new int[] {big, medium, small};
+    }
+
+    public boolean addCar(int carType) {
+        return count[carType - 1]-- > 0;
+    }
+}
