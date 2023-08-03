@@ -20,4 +20,19 @@ class Solution {
 
         return count;
     }
+
+    public int numJewelsInStones2(String jewels, String stones) {
+        int[] asciiArr = new int[123];
+        int count = 0;
+
+        for (char jewel : jewels.toCharArray()) {
+            asciiArr[jewel] = 1;
+        }
+
+        for (char stone : stones.toCharArray()) {
+            count += asciiArr[stone];
+        }
+
+        return count;
+    }
 }
