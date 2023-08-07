@@ -1,7 +1,9 @@
 package com.hopetoknow._1431_kids_with_the_greatest_number_of_candies;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
@@ -19,5 +21,11 @@ class Solution {
         }
 
         return answer;
+    }
+
+    public List<Boolean> kidsWithCandies2(int[] candies, int extraCandies) {
+        int maxCandies = Arrays.stream(candies).max().getAsInt();
+
+        return Arrays.stream(candies).mapToObj(candy -> candy + extraCandies >= maxCandies).collect(Collectors.toList());
     }
 }
