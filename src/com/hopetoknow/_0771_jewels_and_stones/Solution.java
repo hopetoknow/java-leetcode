@@ -1,4 +1,4 @@
-package com.hopetoknow._771_jewels_and_stones;
+package com.hopetoknow._0771_jewels_and_stones;
 
 import java.util.HashSet;
 import java.util.Set;

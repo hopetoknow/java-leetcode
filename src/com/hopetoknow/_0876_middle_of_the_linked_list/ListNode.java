@@ -1,4 +1,4 @@
-package com.hopetoknow._876_middle_of_the_linked_list;
+package com.hopetoknow._0876_middle_of_the_linked_list;
 
 public class ListNode {
     int val;
