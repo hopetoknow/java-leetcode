@@ -44,4 +44,3 @@ class Solution {
         return new String(result);
     }
 }
-
