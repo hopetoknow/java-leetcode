@@ -12,4 +12,12 @@ class Solution {
 
         return answer;
     }
+
+    public int[] runningSum2(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] += nums[i - 1];
+        }
+
+        return nums;
+    }
 }
