@@ -22,4 +22,8 @@ class Solution {
 
         return answer.toString();
     }
+
+    public String interpret2(String command) {
+        return command.replace("()", "o").replace("(al)", "al");
+    }
 }
