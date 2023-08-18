@@ -9,4 +9,22 @@ class Solution {
                 .max()
                 .getAsInt();
     }
+
+    public int mostWordsFound2(String[] sentences) {
+        int answer = 0;
+
+        for (String sentence : sentences) {
+            int count = 0;
+
+            for (int i = 0; i < sentence.length(); i++) {
+                if (sentence.charAt(i) == ' ') {
+                    count++;
+                }
+            }
+
+            answer = Math.max(answer, count);
+        }
+
+        return answer;
+    }
 }
