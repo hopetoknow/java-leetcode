@@ -22,4 +22,23 @@ class Solution {
 
         return leftSum;
     }
+
+    public int[] leftRightDifference2(int[] nums) {
+        int length = nums.length;
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int num : nums) {
+            rightSum += num;
+        }
+
+        for (int i = 0; i < length; i++) {
+            int num = nums[i];
+            rightSum -= num;
+            nums[i] = Math.abs(leftSum - rightSum);
+            leftSum += num;
+        }
+
+        return nums;
+    }
 }
