@@ -19,5 +19,19 @@ class Solution {
 
         return target;
     }
-}
 
+    public static int[] createTargetArray2(int[] nums, int[] index) {
+        int length = nums.length;
+        int[] target = new int[nums.length];
+
+        for (int i = 0; i < length; i++) {
+            for (int j = length - 1; j > index[i]; j--) {
+                target[j] = target[j - 1];
+            }
+
+            target[index[i]] = nums[i];
+        }
+
+        return target;
+    }
+}
