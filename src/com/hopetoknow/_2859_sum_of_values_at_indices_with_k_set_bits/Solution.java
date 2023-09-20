@@ -18,4 +18,34 @@ class Solution {
 
         return sum;
     }
+
+    public int sumIndicesWithKSetBits2(List<Integer> nums, int k) {
+        if (k == 0) {
+            return nums.get(0);
+        }
+
+        int sum = 0;
+
+        for (int i = 1; i < nums.size(); i++) {
+            if (bitCount(i) == k) {
+                sum += nums.get(i);
+            }
+        }
+
+        return sum;
+    }
+
+    private int bitCount(int number) {
+        int count = 0;
+
+        while (number > 0) {
+            if (number % 2 == 1) {
+                count++;
+            }
+
+            number = number >> 1;
+        }
+
+        return count;
+    }
 }
