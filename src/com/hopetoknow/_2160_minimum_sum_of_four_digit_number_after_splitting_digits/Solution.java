@@ -15,4 +15,12 @@ class Solution {
 
         return 10 * digits[0]  + digits[2] + 10 * digits[1] + digits[3];
     }
+
+    public int minimumSum2(int num) {
+        char[] digits = ("" + num).toCharArray();
+
+        Arrays.sort(digits);
+
+        return Integer.parseInt("" + digits[0] + digits[2]) + Integer.parseInt("" + digits[1] + digits[3]);
+    }
 }
