@@ -5,15 +5,18 @@ import java.util.List;
 class Solution {
     public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
         int count = 0;
+        int ruleIndex = 0;
+
+        if ("color".equals(ruleKey)) {
+            ruleIndex = 1;
+        } else if ("name".equals(ruleKey)){
+            ruleIndex = 2;
+        }
 
         for (List<String> item : items) {
-            if ("type".equals(ruleKey) && ruleValue.equals(item.get(0))) {
-                count++;
-            } else if ("color".equals(ruleKey) && ruleValue.equals(item.get(1))) {
-                count++;
-            } else if ("name".equals(ruleKey) && ruleValue.equals(item.get(2))) {
-                count++;
-            }
+             if (ruleValue.equals(item.get(ruleIndex))) {
+                 count++;
+             }
         }
 
         return count;
