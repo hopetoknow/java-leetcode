@@ -19,5 +19,18 @@ class Solution {
 
         return String.join(" ", words);
     }
+
+    public static String sortSentence2(String s) {
+        String[] words = s.split(" ");
+        String[] sortedWords = new String[words.length];
+
+        for (String word : words) {
+            int length = word.length();
+            int i = word.charAt(length - 1) - '1';
+            sortedWords[i] = word.substring(0, length - 1);
+        }
+
+        return String.join(" ", sortedWords);
+    }
 }
 
