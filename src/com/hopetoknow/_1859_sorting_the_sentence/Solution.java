@@ -20,7 +20,7 @@ class Solution {
         return String.join(" ", words);
     }
 
-    public static String sortSentence2(String s) {
+    public String sortSentence2(String s) {
         String[] words = s.split(" ");
         String[] sortedWords = new String[words.length];
 
