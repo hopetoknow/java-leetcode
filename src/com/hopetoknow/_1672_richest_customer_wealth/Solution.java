@@ -4,21 +4,19 @@ import java.util.Arrays;
 
 class Solution {
     public int maximumWealth(int[][] accounts) {
-        int maximumWealth = Integer.MIN_VALUE;
-        int wealth;
+        int maxWealth = 0;
 
         for (int[] account : accounts) {
-            wealth = 0;
-            for (int moneyAmountInBank : account) {
-                wealth += moneyAmountInBank;
+            int wealth = 0;
+
+            for (int money : account) {
+                wealth += money;
             }
 
-            if (wealth > maximumWealth) {
-                maximumWealth = wealth;
-            }
+            maxWealth = Math.max(maxWealth, wealth);
         }
 
-        return maximumWealth;
+        return maxWealth;
     }
 
     public int maximumWealth2(int[][] accounts) {

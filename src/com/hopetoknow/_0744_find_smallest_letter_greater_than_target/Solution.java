@@ -17,12 +17,12 @@ class Solution {
         int right = length - 1;
 
         while (left <= right) {
-            int index = (left + right) >> 1;
+            int mid = (left + right) >> 1;
 
-            if (letters[index] <= target) {
-                left = index + 1;
+            if (letters[mid] <= target) {
+                left = mid + 1;
             } else {
-                right = index - 1;
+                right = mid - 1;
             }
         }
 
