@@ -28,4 +28,15 @@ class Solution {
 
         return tempNode;
     }
+
+    public ListNode middleNode2(ListNode head) {
+        ListNode slow = head, fast = head;
+
+        while (slow.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
 }
