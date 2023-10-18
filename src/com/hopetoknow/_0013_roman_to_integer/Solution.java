@@ -41,13 +41,17 @@ class Solution {
         int answer = 0;
 
         for (int i = 0; i < s.length() - 1; i++) {
-            if (map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
-                answer -= map.get(s.charAt(i));
+            int currentValue = map.get(s.charAt(i));
+            int nextValue = map.get(s.charAt(i + 1));
+            
+            if (currentValue < nextValue) {
+                answer -= currentValue;
             } else {
-                answer += map.get(s.charAt(i));
+                answer += currentValue;
             }
         }
 
-        return answer + map.get(s.charAt(s.length() - 1));
+        answer += map.get(s.charAt(s.length() - 1));
+        return answer;
     }
 }
