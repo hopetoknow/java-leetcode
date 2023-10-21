@@ -12,14 +12,8 @@ class Solution {
         }
 
         for (char letter : ransomNote.toCharArray()) {
-            if (magazineLetters.containsKey(letter)) {
-                int letterFrequency = magazineLetters.get(letter);
-
-                if (letterFrequency > 1) {
-                    magazineLetters.put(letter, letterFrequency - 1);
-                } else {
-                    magazineLetters.remove(letter);
-                }
+            if (magazineLetters.getOrDefault(letter, 0) > 0) {
+                magazineLetters.put(letter, magazineLetters.get(letter) - 1);
             } else {
                 return false;
             }
