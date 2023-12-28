@@ -14,4 +14,12 @@ class Solution {
 
         return answer;
     }
+
+    public int differenceOfSums2(int n, int m) {
+        int sum = n * (n + 1) / 2;
+        int k = n / m;
+        int num2 = k * (k + 1) / 2 * m;
+
+        return sum - num2 * 2;
+    }
 }
