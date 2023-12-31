@@ -1,6 +1,7 @@
 package com.hopetoknow._2974_minimum_number_game;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 class Solution {
     public int[] numberGame(int[] nums) {
@@ -27,5 +28,24 @@ class Solution {
         }
 
         return nums;
+    }
+
+    public int[] numberGame3(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        for (int num : nums) {
+            pq.offer(num);
+        }
+
+        int[] answer = new int[nums.length];
+        int i = 0;
+
+        while (!pq.isEmpty()) {
+            int temp = pq.poll();
+            answer[i++] = pq.poll();
+            answer[i++] = temp;
+        }
+
+        return answer;
     }
 }
