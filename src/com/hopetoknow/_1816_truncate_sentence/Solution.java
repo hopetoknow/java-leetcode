@@ -1,5 +1,7 @@
 package com.hopetoknow._1816_truncate_sentence;
 
+import java.util.Arrays;
+
 class Solution {
     public String truncateSentence(String s, int k) {
         StringBuilder sb = new StringBuilder();
@@ -12,5 +14,9 @@ class Solution {
         sb.append(words[k-1]);
 
         return sb.toString();
+    }
+
+    public String truncateSentence2(String s, int k) {
+        return String.join(" ", Arrays.copyOf(s.split(" "), k));
     }
 }
