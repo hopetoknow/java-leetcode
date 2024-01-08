@@ -19,4 +19,14 @@ class Solution {
     public String truncateSentence2(String s, int k) {
         return String.join(" ", Arrays.copyOf(s.split(" "), k));
     }
+
+    public String truncateSentence3(String s, int k) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ' && (--k) == 0) {
+                return s.substring(0, i);
+            }
+        }
+
+        return s;
+    }
 }
