@@ -1,5 +1,8 @@
 package com.hopetoknow._0234_palindrome_linked_list;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -70,6 +73,23 @@ class Solution {
 
             slow = slow.next;
             fast = fast.next;
+        }
+
+        return true;
+    }
+
+    public boolean isPalindrome3(ListNode head) {
+        List<Integer> list = new ArrayList<>();
+
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+
+        for (int i = 0, j = list.size() - 1; i < list.size() / 2; i++, j--) {
+            if (!list.get(i).equals(list.get(j))) {
+                return false;
+            }
         }
 
         return true;
