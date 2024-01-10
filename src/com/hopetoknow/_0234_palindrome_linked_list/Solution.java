@@ -67,12 +67,12 @@ class Solution {
         slow = prev;
 
         while (slow != null) {
-            if (slow.val != fast.val) {
+            if (fast.val != slow.val) {
                 return false;
             }
 
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
 
         return true;

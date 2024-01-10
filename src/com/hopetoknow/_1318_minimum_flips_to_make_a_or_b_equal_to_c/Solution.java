@@ -23,9 +23,9 @@ class Solution {
         int count = 0;
 
         for (int i = 0; i < 30; i++) {
-            int x = a >> i & 1;
-            int y = b >> i & 1;
-            int z = c >> i & 1;
+            int x = (a >> i) & 1;
+            int y = (b >> i) & 1;
+            int z = (c >> i) & 1;
 
             if ((x | y) != z) {
                 count += x == 1 && y == 1 ? 2 : 1;
