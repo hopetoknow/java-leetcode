@@ -14,4 +14,19 @@ class Solution {
 
         return counter;
     }
+
+    public static int countDigits2(int num) {
+        int count = 0;
+        String str = Integer.toString(num);
+
+        for (int i = 0; i < str.length(); i++) {
+            int digit = Character.getNumericValue(str.charAt(i));
+
+            if (num % digit == 0) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
