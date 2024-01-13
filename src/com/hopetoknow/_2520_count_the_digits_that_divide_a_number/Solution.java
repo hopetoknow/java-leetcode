@@ -29,4 +29,8 @@ class Solution {
 
         return count;
     }
+
+    public static int countDigits3(int num) {
+        return (int) Integer.toString(num).chars().filter(c -> num % (c - '0') == 0).count();
+    }
 }
