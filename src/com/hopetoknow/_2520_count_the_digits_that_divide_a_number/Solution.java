@@ -15,7 +15,7 @@ class Solution {
         return counter;
     }
 
-    public static int countDigits2(int num) {
+    public int countDigits2(int num) {
         int count = 0;
         String str = Integer.toString(num);
 
@@ -30,7 +30,7 @@ class Solution {
         return count;
     }
 
-    public static int countDigits3(int num) {
+    public int countDigits3(int num) {
         return (int) Integer.toString(num).chars().filter(c -> num % (c - '0') == 0).count();
     }
 }
