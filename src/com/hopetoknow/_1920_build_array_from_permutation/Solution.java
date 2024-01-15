@@ -1,26 +1,41 @@
 package com.hopetoknow._1920_build_array_from_permutation;
 
 class Solution {
-    public static int[] buildArray(int[] nums) {
-        int length = nums.length;
-        int[] answer = new int[length];
+    public int[] buildArray(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
 
-        for (int i = 0; i < length; i++) {
-            answer[i] = nums[nums[i]];
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[nums[i]];
         }
 
-        return answer;
+        return ans;
     }
 
-    public static int[] buildArray2(int[] nums) {
-        int length = nums.length;
+    public int[] buildArray2(int[] nums) {
+        int n = nums.length;
 
-        for (int i = 0; i < length; i++) {
-            nums[i] = nums[i] + length * (nums[nums[i]] % length);
+        for (int i = 0; i < n; i++) {
+            nums[i] = nums[i] + n * (nums[nums[i]] % n);
         }
 
-        for (int i = 0; i < length; i++) {
-            nums[i] /= length;
+        for (int i = 0; i < n; i++) {
+            nums[i] /= n;
+        }
+
+        return nums;
+    }
+
+    public int[] buildArray3(int[] nums) {
+        int mask = 1023;
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            nums[i] |= (nums[nums[i]] & mask) << 10;
+        }
+
+        for (int i = 0; i < n; i++) {
+            nums[i] >>= 10;
         }
 
         return nums;
