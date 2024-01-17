@@ -4,5 +4,5 @@ SELECT
     SUM(out_time - in_time) AS total_time
 FROM Employees
 GROUP BY
-    emp_id,
-    event_day;
+    event_day,
+    emp_id
