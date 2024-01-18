@@ -45,13 +45,13 @@ class ParkingSystem {
  */
 
 class ParkingSystem2 {
-    private int[] count;
+    private int[] slots;
 
     public ParkingSystem2(int big, int medium, int small) {
-        count = new int[] {big, medium, small};
+        slots = new int[] {big, medium, small};
     }
 
     public boolean addCar(int carType) {
-        return count[carType - 1]-- > 0;
+        return slots[carType - 1]-- > 0;
     }
 }
