@@ -6,7 +6,19 @@ import java.util.Set;
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
         int count = 0;
-        Set set = new HashSet();
+
+        for (String stone : stones.split("")) {
+            if (jewels.contains(stone)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int numJewelsInStones2(String jewels, String stones) {
+        Set<Character> set = new HashSet<>();
+        int count = 0;
 
         for (char jewel : jewels.toCharArray()) {
             set.add(jewel);
@@ -21,7 +33,7 @@ class Solution {
         return count;
     }
 
-    public int numJewelsInStones2(String jewels, String stones) {
+    public int numJewelsInStones3(String jewels, String stones) {
         int[] asciiArr = new int[123];
         int count = 0;
 
