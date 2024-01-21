@@ -47,4 +47,8 @@ class Solution {
 
         return count;
     }
+
+    public int numJewelsInStones4(String jewels, String stones) {
+        return stones.replaceAll("[^" + jewels + "]", "").length();
+    }
 }
