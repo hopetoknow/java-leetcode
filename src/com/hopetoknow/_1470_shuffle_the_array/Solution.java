@@ -13,19 +13,31 @@ class Solution {
     }
 
     public int[] shuffle2(int[] nums, int n) {
-        int length = nums.length;
+        int len = nums.length;
         int max = 1001;
 
-        for (int i = n; i < length; i++) {
+        for (int i = n; i < len; i++) {
             nums[i] = (nums[i] * max) + nums[i - n];
         }
 
-        int index = 0;
+        for (int i = 0, j = n; j < len; j++) {
+            nums[i++] = nums[j] % max;
+            nums[i++] = nums[j] / max;
+        }
 
-        for (int i = n; i < length; i++) {
-            nums[index] = nums[i] % max;
-            nums[index + 1] = nums[i] / max;
-            index += 2;
+        return nums;
+    }
+
+    public int[] shuffle3(int[] nums, int n) {
+        int max = 1001;
+
+        for (int i = 0, j = 0, k = n; i < n * 2; j++, k++) {
+            nums[i] = nums[i++] + max * (nums[j] % max);
+            nums[i] = nums[i++] + max * (nums[k] % max);
+        }
+
+        for (int i = 0; i < n * 2; i++) {
+            nums[i] /= max;
         }
 
         return nums;
