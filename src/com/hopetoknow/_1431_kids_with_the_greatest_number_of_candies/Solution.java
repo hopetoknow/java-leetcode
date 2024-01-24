@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> answer = new ArrayList<>(candies.length);
-        int maxCandies = candies[0];
+        int maxCandies = 0;
 
         for (int candy : candies) {
             maxCandies = Math.max(maxCandies, candy);

@@ -5,15 +5,30 @@ import java.util.Map;
 
 class Solution {
     public int numIdenticalPairs(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+
+    public int numIdenticalPairs2(int[] nums) {
         Map<Integer, Integer> numsMap = new HashMap<>();
-        int count = 0;
+        int ans = 0;
 
         for (int num : nums) {
             int numCount = numsMap.getOrDefault(num, 0);
-            count += numCount;
+            ans += numCount;
             numsMap.put(num, numCount + 1);
         }
 
-        return count;
+        return ans;
     }
 }

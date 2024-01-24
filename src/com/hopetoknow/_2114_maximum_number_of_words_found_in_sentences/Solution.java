@@ -11,10 +11,10 @@ class Solution {
     }
 
     public int mostWordsFound2(String[] sentences) {
-        int answer = 0;
+        int ans = 0;
 
         for (String sentence : sentences) {
-            int count = 0;
+            int count = 1;
 
             for (int i = 0; i < sentence.length(); i++) {
                 if (sentence.charAt(i) == ' ') {
@@ -22,9 +22,9 @@ class Solution {
                 }
             }
 
-            answer = Math.max(answer, count);
+            ans = Math.max(ans, count);
         }
 
-        return answer;
+        return ans;
     }
 }
