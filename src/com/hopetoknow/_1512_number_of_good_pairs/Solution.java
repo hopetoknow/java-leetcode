@@ -31,4 +31,15 @@ class Solution {
 
         return ans;
     }
+
+    public int numIdenticalPairs3(int[] nums) {
+        int[] arr = new int[101];
+        int ans = 0;
+
+        for (int num : nums) {
+            ans += arr[num]++;
+        }
+
+        return ans;
+    }
 }
