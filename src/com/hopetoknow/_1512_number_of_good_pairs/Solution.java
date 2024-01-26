@@ -42,4 +42,20 @@ class Solution {
 
         return ans;
     }
+
+    public int numIdenticalPairs4(int[] nums) {
+        Map<Integer, Integer> freqs = new HashMap<>();
+        int ans = 0;
+
+        for (int num : nums) {
+            int numCount = freqs.getOrDefault(num, 0);
+            freqs.put(num, numCount + 1);
+        }
+
+        for (int freq : freqs.values()) {
+            ans += freq * (freq - 1) / 2;
+        }
+
+        return ans;
+    }
 }
