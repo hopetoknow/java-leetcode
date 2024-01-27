@@ -6,39 +6,69 @@ import java.util.Map;
 
 class Solution {
     public int[] smallerNumbersThanCurrent(int[] nums) {
-        int length = nums.length;
-        int[] answer = new int[length];
+        int n = nums.length;
+        int[] ans = new int[n];
 
-        for (int i = 0; i < length; i++) {
-            int counter = 0;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
 
-            for (int j = 0; j < length; j++) {
+            for (int j = 0; j < n; j++) {
                 if (nums[j] < nums[i]) {
-                    counter++;
+                    count++;
                 }
             }
 
-            answer[i] = counter;
+            ans[i] = count;
         }
 
-        return answer;
+        return ans;
     }
 
     public int[] smallerNumbersThanCurrent2(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
-        int[] numsCopy = nums.clone();
-        int length = nums.length;
+        int[] ans = nums.clone();
+        int n = nums.length;
 
-        Arrays.sort(numsCopy);
+        Arrays.sort(ans);
 
-        for (int i = 0; i < length; i++) {
-            map.putIfAbsent(numsCopy[i], i);
+        for (int i = 0; i < n; i++) {
+            map.putIfAbsent(ans[i], i);
         }
 
-        for (int i = 0; i < length; i++) {
-            numsCopy[i] = map.get(nums[i]);
+        for (int i = 0; i < n; i++) {
+            ans[i] = map.get(nums[i]);
         }
 
-        return numsCopy;
+        return ans;
+    }
+
+    public int[] smallerNumbersThanCurrent3(int[] nums) {
+        int[] ans = nums.clone();
+        int n = nums.length;
+
+        Arrays.sort(ans);
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = search(ans, nums[i]);
+        }
+
+        return nums;
+    }
+
+    private int search(int[] arr, int num) {
+        int left = 0;
+        int right = arr.length;
+
+        while (left < right) {
+            int index = (left + right) >> 1;
+
+            if (arr[index] >= num) {
+                right = index;
+            } else {
+                left = index + 1;
+            }
+        }
+
+        return left;
     }
 }
