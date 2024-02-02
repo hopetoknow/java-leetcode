@@ -22,4 +22,8 @@ class Solution {
         int count = last / first;
         return (first + last) * count / 2;
     }
+
+    private int sum2(int n, int first) {
+        return first * (1 + n / first) * (n / first) / 2;
+    }
 }
