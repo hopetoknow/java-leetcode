@@ -1,3 +1,4 @@
+--MS SQL Server | MySQL
 SELECT MAX(num) AS num
 FROM
     (
@@ -7,7 +8,7 @@ FROM
         HAVING COUNT(num) = 1
     ) AS single_numbers
 
--- Second solution
+--MS SQL Server | Second solution
 SELECT COALESCE(
     (
         SELECT TOP 1 num
@@ -18,3 +19,14 @@ SELECT COALESCE(
     ),
     NULL
 ) AS num
+
+--MySQL | Second solution
+SELECT
+    CASE
+        WHEN COUNT(num) = 1 THEN num
+        ELSE NULL
+    END AS num
+FROM MyNumbers
+GROUP BY num
+ORDER BY num DESC
+LIMIT 1
