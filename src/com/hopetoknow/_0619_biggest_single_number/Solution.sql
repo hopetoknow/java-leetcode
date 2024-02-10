@@ -8,7 +8,7 @@ FROM
         HAVING COUNT(num) = 1
     ) AS single_numbers
 
---MS SQL Server | Second solution
+--MS SQL Server (second solution)
 SELECT COALESCE(
     (
         SELECT TOP 1 num
@@ -20,7 +20,7 @@ SELECT COALESCE(
     NULL
 ) AS num
 
---MySQL | Second solution
+--MySQL (second solution)
 SELECT
     CASE
         WHEN COUNT(num) = 1 THEN num

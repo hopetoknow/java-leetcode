@@ -1,3 +1,4 @@
+--MS SQL Server
 DELETE FROM Person
 WHERE id NOT IN (
     SELECT MIN(id)
@@ -5,7 +6,7 @@ WHERE id NOT IN (
     GROUP BY email
 )
 
--- Second solution
+--MS SQL Server | MySQL
 DELETE FROM Person
 WHERE id NOT IN (
     SELECT id
@@ -16,4 +17,15 @@ WHERE id NOT IN (
         FROM Person
     ) AS email_row_numbers
     WHERE row_number = 1
+)
+
+--MySQL (second solution)
+DELETE FROM Person
+WHERE id NOT IN (
+    SELECT id
+    FROM (
+        SELECT MIN(id) AS id
+        FROM Person
+        GROUP BY email
+    ) as unique_ids
 )
