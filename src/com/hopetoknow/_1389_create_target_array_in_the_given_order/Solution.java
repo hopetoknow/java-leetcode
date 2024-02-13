@@ -5,33 +5,35 @@ import java.util.List;
 
 class Solution {
     public int[] createTargetArray(int[] nums, int[] index) {
-        int length = nums.length;
-        int[] target = new int[length];
+        int n = nums.length;
         List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(index[i], nums[i]);
         }
 
-        for (int i = 0; i < length; i++) {
-            target[i] = list.get(i);
+        // return list.stream().mapToInt(num -> num).toArray();
+        int[] ans = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            ans[i] = list.get(i);
         }
 
-        return target;
+        return ans;
     }
 
-    public static int[] createTargetArray2(int[] nums, int[] index) {
-        int length = nums.length;
-        int[] target = new int[nums.length];
+    public int[] createTargetArray2(int[] nums, int[] index) {
+        int n = nums.length;
+        int[] ans = new int[n];
 
-        for (int i = 0; i < length; i++) {
-            for (int j = length - 1; j > index[i]; j--) {
-                target[j] = target[j - 1];
+        for (int i = 0; i < n; i++) {
+            for (int j = n - 1; j > index[i]; j--) {
+                ans[j] = ans[j - 1];
             }
 
-            target[index[i]] = nums[i];
+            ans[index[i]] = nums[i];
         }
 
-        return target;
+        return ans;
     }
 }
