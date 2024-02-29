@@ -92,3 +92,26 @@ LEFT JOIN Department AS d_sep ON d.id = d_sep.id AND d_sep.month = 'Sep'
 LEFT JOIN Department AS d_oct ON d.id = d_oct.id AND d_oct.month = 'Oct'
 LEFT JOIN Department AS d_nov ON d.id = d_nov.id AND d_nov.month = 'Nov'
 LEFT JOIN Department AS d_dec ON d.id = d_dec.id AND d_dec.month = 'Dec'
+
+--MS SQL Server (third solution)
+SELECT
+    id,
+    Jan AS Jan_Revenue,
+    Feb AS Feb_Revenue,
+    Mar AS Mar_Revenue,
+    Apr AS Apr_Revenue,
+    May AS May_Revenue,
+    Jun AS Jun_Revenue,
+    Jul AS Jul_Revenue,
+    Aug AS Aug_Revenue,
+    Sep AS Sep_Revenue,
+    Oct AS Oct_Revenue,
+    Nov AS Nov_Revenue,
+    Dec AS Dec_Revenue
+FROM Department
+PIVOT
+(
+    MAX(revenue)
+    FOR month IN
+    (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec)
+) AS pivoted_revenues
