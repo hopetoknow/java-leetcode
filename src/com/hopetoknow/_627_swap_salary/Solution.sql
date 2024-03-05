@@ -6,3 +6,7 @@ SET sex = (
         ELSE 'm'
     END
 )
+
+--MS SQL Server (second solution) | MySQL (second solution)
+UPDATE salary
+SET sex = CHAR(ASCII('f') + ASCII('m') - ASCII(sex))
