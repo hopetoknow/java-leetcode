@@ -10,3 +10,7 @@ SET sex = (
 --MS SQL Server (second solution) | MySQL (second solution)
 UPDATE salary
 SET sex = CHAR(ASCII('f') + ASCII('m') - ASCII(sex))
+
+--MySQL (third solution)
+UPDATE salary
+SET sex = IF(sex = 'm','f','m')
