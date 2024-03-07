@@ -6,7 +6,7 @@ WHERE id NOT IN (
     GROUP BY email
 )
 
---MS SQL Server | MySQL
+--MS SQL Server (second solution) | MySQL
 DELETE FROM Person
 WHERE id NOT IN (
     SELECT id
