@@ -11,3 +11,12 @@ WHERE id NOT IN (
     SELECT customerId
     FROM Orders
 )
+
+--MySQL (third solution)
+SELECT name AS customers
+FROM Customers
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM Orders
+    WHERE customerId = Customers.id
+)
