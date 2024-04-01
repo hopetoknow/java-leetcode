@@ -8,3 +8,9 @@ FROM (
     GROUP BY customer_number
     ORDER BY amount DESC
 ) AS top_customer
+
+--MS SQL Server (second solution) | MySQL (second solution)
+SELECT TOP 1 customer_number
+FROM Orders
+GROUP BY customer_number
+ORDER BY COUNT(customer_number) DESC
