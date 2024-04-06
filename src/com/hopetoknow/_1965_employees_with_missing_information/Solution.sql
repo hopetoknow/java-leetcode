@@ -25,3 +25,13 @@ FROM Salaries
 LEFT JOIN Employees ON Salaries.employee_id = Employees.employee_id
 WHERE name IS NULL
 ORDER BY employee_id
+
+--MS SQL Server (third solution) | MySQL (third solution)
+SELECT employee_id FROM employees
+UNION
+SELECT employee_id FROM salaries
+EXCEPT
+SELECT employee_id FROM employees
+INTERSECT
+SELECT employee_id FROM salaries
+ORDER BY employee_id
