@@ -15,4 +15,12 @@ WHERE NOT EXISTS (
     WHERE SalesPerson.sales_id = red_salespersons.sales_id
 )
 
---MySQL (second solution)
+--MS SQL Server (second solution) | MySQL (second solution)
+SELECT name
+FROM SalesPerson
+WHERE sales_id NOT IN (
+    SELECT sales_id
+    FROM Orders
+    INNER JOIN Company ON Orders.com_id = Company.com_id
+    WHERE Company.name = 'RED'
+)
