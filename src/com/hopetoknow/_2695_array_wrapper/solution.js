@@ -3,38 +3,38 @@
  * @return {void}
  */
 var ArrayWrapper = function(nums) {
-    this.nums = nums
+    this.nums = nums;
 };
 
 /**
  * @return {number}
  */
 ArrayWrapper.prototype.valueOf = function() {
-    let sum = 0
+    let sum = 0;
 
      for (let i = 0; i < this.nums.length; i++) {
-        sum += this.nums[i]
+        sum += this.nums[i];
     }
 
-    return sum
+    return sum;
 }
 
 /**
  * @return {string}
  */
 ArrayWrapper.prototype.toString = function() {
-    let str = "["
+    let str = "[";
 
     for (let i = 0; i < this.nums.length; i++) {
-        str += this.nums[i]
+        str += this.nums[i];
 
         if (i != this.nums.length - 1) {
-            str += ","
+            str += ",";
         }
     }
 
 
-    return str + "]"
+    return str + "]";
 }
 
 /**
