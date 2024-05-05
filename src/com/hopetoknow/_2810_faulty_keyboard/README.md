@@ -42,7 +42,7 @@ Therefore, we return "ponter".</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-  <li><code>1 &lt;= s.length &lt;= 100</code></li>
-  <li><code>s</code> consists of lowercase English letters.</li>
-  <li><code>s[0] != 'i'</code></li>
+	<li><code>1 &lt;= s.length &lt;= 100</code></li>
+	<li><code>s</code> consists of lowercase English letters.</li>
+	<li><code>s[0] != 'i'</code></li>
 </ul>
