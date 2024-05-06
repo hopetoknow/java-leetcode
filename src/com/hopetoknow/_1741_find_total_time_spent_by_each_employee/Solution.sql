@@ -1,3 +1,4 @@
+--MS SQL Server | MySQL
 SELECT
     event_day AS day,
     emp_id,
