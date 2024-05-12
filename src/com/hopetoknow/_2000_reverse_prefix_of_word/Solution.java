@@ -28,4 +28,22 @@ class Solution {
 
         return new StringBuilder(word.substring(0, i + 1)).reverse() + word.substring(i + 1);
     }
+
+    public String reversePrefix3(String word, char ch) {
+        int index = word.indexOf(ch);
+
+        if (index == -1) {
+            return word;
+        }
+
+        char[] arr = word.toCharArray();
+
+        for (int i = 0; i < index; i++, index--) {
+            char temp = arr[i];
+            arr[i] = arr[index];
+            arr[index] = temp;
+        }
+
+        return new String(arr);
+    }
 }
