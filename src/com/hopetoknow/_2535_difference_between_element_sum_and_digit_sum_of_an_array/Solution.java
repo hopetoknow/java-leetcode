@@ -16,4 +16,14 @@ class Solution {
 
         return Math.abs(elementSum - digitSum);
     }
+
+    public int differenceOfSum2(int[] nums) {
+        int ans = 0;
+
+        for (int num : nums) {
+            ans += num - (num / 1000 + num % 1000 / 100 + num % 100 / 10 + num % 10);
+        }
+
+        return Math.abs(ans);
+    }
 }
