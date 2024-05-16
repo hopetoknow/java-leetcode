@@ -1,5 +1,7 @@
 package com.hopetoknow._2535_difference_between_element_sum_and_digit_sum_of_an_array;
 
+import java.util.Arrays;
+
 class Solution {
     public int differenceOfSum(int[] nums) {
         int elementSum = 0;
@@ -25,5 +27,17 @@ class Solution {
         }
 
         return Math.abs(ans);
+    }
+
+    public int differenceOfSum3(int[] nums) {
+        int elementSum = Arrays.stream(nums).sum();
+        int digitSum = Arrays.stream(nums)
+                .map(num -> String.valueOf(num)
+                        .chars()
+                        .map(Character::getNumericValue)
+                        .sum())
+                .sum();
+
+        return Math.abs(elementSum - digitSum);
     }
 }
