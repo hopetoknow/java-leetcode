@@ -9,3 +9,10 @@ WHERE
 SELECT *
 FROM Patients
 WHERE conditions REGEXP '\\bDIAB1'
+
+--MS SQL Server (second solution)
+SELECT *
+FROM Patients
+WHERE
+    PATINDEX('DIAB1%', conditions) > 0
+    OR PATINDEX('% DIAB1%', conditions) > 0
