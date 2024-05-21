@@ -20,4 +20,21 @@ class Solution {
 
         return ans;
     }
+
+    public int findPermutationDifference2(String s, String t) {
+        int[] abc = new int[26];
+        int n = s.length();
+
+        for (int i = 0; i < n; ++i) {
+            abc[s.charAt(i) - 'a'] = i;
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < n; ++i) {
+            ans += Math.abs(abc[t.charAt(i) - 'a'] - i);
+        }
+
+        return ans;
+    }
 }
