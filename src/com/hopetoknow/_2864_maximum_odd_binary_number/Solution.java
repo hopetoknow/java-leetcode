@@ -1,5 +1,7 @@
 package com.hopetoknow._2864_maximum_odd_binary_number;
 
+import java.util.Arrays;
+
 class Solution {
     public static String maximumOddBinaryNumber(String s) {
         StringBuilder sb = new StringBuilder();
@@ -35,5 +37,28 @@ class Solution {
         }
 
         return "1".repeat(count - 1) + "0".repeat(s.length() - count) + "1";
+    }
+
+    public String maximumOddBinaryNumber3(String s) {
+        char[] arr = s.toCharArray();
+        int n = arr.length;
+
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n / 2; i++) {
+            char temp = arr[i];
+            arr[i] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] == '1') {
+                arr[i] = arr[n - 1];
+                arr[n - 1] = '1';
+                break;
+            }
+        }
+
+        return new String(arr);
     }
 }
