@@ -61,4 +61,19 @@ class Solution {
 
         return new String(arr);
     }
+
+    public String maximumOddBinaryNumber4(String s) {
+        char[] arr = s.toCharArray();
+        int n = arr.length;
+
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n / 2; i++) {
+            char temp = arr[i];
+            arr[i] = arr[n - 2 - i];
+            arr[n - 2 - i] = temp;
+        }
+
+        return new String(arr);
+    }
 }
