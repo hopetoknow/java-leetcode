@@ -10,4 +10,14 @@ class Solution {
 
         return String.join(" ", words);
     }
+
+    public String reverseWords2(String s) {
+        StringBuilder ans = new StringBuilder();
+
+        for (String word : s.split(" ")) {
+            ans.append(new StringBuilder(word).reverse()).append(" ");
+        }
+
+        return ans.toString().trim();
+    }
 }
