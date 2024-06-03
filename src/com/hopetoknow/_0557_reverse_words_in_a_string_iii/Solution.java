@@ -20,4 +20,18 @@ class Solution {
 
         return ans.toString().trim();
     }
+
+    public String reverseWords3(String s) {
+        StringBuilder ans = new StringBuilder();
+
+        for (String word : s.split(" ")) {
+            for (int i = word.length() - 1; i >= 0; i--) {
+                ans.append(word.charAt(i));
+            }
+
+            ans.append(" ");
+        }
+
+        return ans.substring(0, ans.length() - 1);
+    }
 }
