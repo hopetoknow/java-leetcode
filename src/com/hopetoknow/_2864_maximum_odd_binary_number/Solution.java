@@ -101,7 +101,7 @@ class Solution {
                 right--;
             }
 
-            if (left <= right && arr[left] == '0' && arr[right] == '1') {
+            if (left < right && arr[left] == '0' && arr[right] == '1') {
                 arr[left] = '1';
                 arr[right] = '0';
             }
