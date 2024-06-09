@@ -29,4 +29,20 @@ class Solution {
 
         return true;
     }
+
+    public boolean checkIfPangram3(String sentence) {
+        boolean[] abc = new boolean[26];
+
+        for (int i = 0; i < sentence.length(); i++) {
+            abc[sentence.charAt(i) - 'a'] = true;
+        }
+
+        for (boolean b : abc) {
+            if (!b) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
