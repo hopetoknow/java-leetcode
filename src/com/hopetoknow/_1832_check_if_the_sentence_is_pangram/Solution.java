@@ -45,4 +45,20 @@ class Solution {
 
         return true;
     }
+
+    public boolean checkIfPangram4(String sentence) {
+        if (sentence.length() < 26) {
+            return false;
+        }
+
+        String abc = "abcdefghijklmnopqrstuvwxyz";
+
+        for (char ch : abc.toCharArray()) {
+            if (sentence.indexOf(ch) == -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
