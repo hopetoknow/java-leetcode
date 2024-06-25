@@ -44,4 +44,44 @@ class Solution {
 
         return ans;
     }
+
+    public int minMovesToSeat4(int[] seats, int[] students) {
+        int maxPosition = 100;
+        int[] seatCount = new int[maxPosition + 1];
+        int[] studentCount = new int[maxPosition + 1];
+
+        for (int i = 0; i < seats.length; i++) {
+            seatCount[seats[i]]++;
+            studentCount[students[i]]++;
+        }
+
+        int seatIndex = 0;
+        int studentIndex = 0;
+        int ans = 0;
+
+        while (seatIndex <= maxPosition && studentIndex <= maxPosition) {
+            while (seatIndex <= maxPosition && seatCount[seatIndex] == 0) {
+                seatIndex++;
+            }
+
+            while (studentIndex <= maxPosition && studentCount[studentIndex] == 0) {
+                studentIndex++;
+            }
+
+            if (seatIndex <= maxPosition && studentIndex <= maxPosition) {
+                int minCount = Math.min(seatCount[seatIndex], studentCount[studentIndex]);
+                ans += minCount * Math.abs(seatIndex - studentIndex);
+                seatCount[seatIndex] -= minCount;
+                studentCount[studentIndex] -= minCount;
+            }
+
+//            if (seatIndex <= maxPosition && studentIndex <= maxPosition) {
+//                ans += Math.abs(seatIndex - studentIndex);
+//                seatCount[seatIndex]--;
+//                studentCount[studentIndex]--;
+//            }
+        }
+
+        return ans;
+    }
 }
