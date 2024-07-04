@@ -1,7 +1,9 @@
 package com.hopetoknow._2956_find_common_elements_between_two_arrays;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 class Solution {
     public int[] findIntersectionValues(int[] nums1, int[] nums2) {
@@ -53,6 +55,33 @@ class Solution {
         for (Integer key : map2.keySet()) {
             if (map1.containsKey(key)) {
                 ans2 += map2.get(key);
+            }
+        }
+
+        return new int[]{ans1, ans2};
+    }
+
+    public int[] findIntersectionValues3(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+        int ans1 = 0;
+        int ans2 = 0;
+
+        for (int num : nums1) {
+            set1.add(num);
+        }
+
+        for (int num : nums2) {
+            set2.add(num);
+
+            if (set1.contains(num)) {
+                ans2++;
+            }
+        }
+
+        for (int num : nums1) {
+            if (set2.contains(num)) {
+                ans1++;
             }
         }
 
