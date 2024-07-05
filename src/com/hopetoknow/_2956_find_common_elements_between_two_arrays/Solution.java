@@ -87,4 +87,30 @@ class Solution {
 
         return new int[]{ans1, ans2};
     }
+
+    public int[] findIntersectionValues4(int[] nums1, int[] nums2) {
+        int[] numCount1 = new int[101];
+        int[] numCount2 = new int[101];
+
+        for (int num : nums1) {
+            numCount1[num] = 1;
+        }
+
+        for (int num : nums2) {
+            numCount2[num] = 1;
+        }
+
+        int ans1 = 0;
+        int ans2 = 0;
+
+        for (int num : nums1) {
+            ans1 += numCount2[num];
+        }
+
+        for (int num : nums2) {
+            ans2 += numCount1[num];
+        }
+
+        return new int[]{ans1, ans2};
+    }
 }
