@@ -41,4 +41,16 @@ class Solution {
 
         return set.size();
     }
+
+    public int numUniqueEmails3(String[] emails) {
+        Set<String> set = new HashSet<>();
+
+        for (String email : emails) {
+            String[] names = email.split("@");
+            String localName = names[0].split("\\+")[0].replace(".", "");
+            set.add(localName + "@" + names[1]);
+        }
+
+        return set.size();
+    }
 }
