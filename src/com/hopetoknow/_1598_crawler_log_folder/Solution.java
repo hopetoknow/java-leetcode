@@ -1,6 +1,7 @@
 package com.hopetoknow._1598_crawler_log_folder;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 class Solution {
     public int minOperations(String[] logs) {
@@ -22,4 +23,22 @@ class Solution {
                 .mapToInt(log -> log.lastIndexOf("."))
                 .reduce(0, (depth, index) -> Math.max(0, depth - index));
     }
+
+    public int minOperations3(String[] logs) {
+        Stack<String> stack = new Stack<>();
+
+        for (String log : logs) {
+            if (log.equals("../")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            } else if (!log.equals("./")) {
+                stack.push(log);
+            }
+        }
+
+        return stack.size();
+    }
+
+
 }
