@@ -40,5 +40,22 @@ class Solution {
         return stack.size();
     }
 
+    public int minOperations4(String[] logs) {
+        int ans = 0;
 
+        for (String log : logs) {
+            switch (log) {
+                case "../":
+                    if (ans > 0) ans--;
+                    break;
+                case "./":
+                    break;
+                default:
+                    ans++;
+                    break;
+            }
+        }
+
+        return ans;
+    }
 }
