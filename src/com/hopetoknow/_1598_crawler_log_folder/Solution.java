@@ -58,4 +58,18 @@ class Solution {
 
         return ans;
     }
+
+    public int minOperations5(String[] logs) {
+        int ans = 0;
+
+        for (String log : logs) {
+            ans = switch (log) {
+                case "../" -> ans > 0 ? ans - 1 : ans;
+                case "./" -> ans;
+                default -> ans + 1;
+            };
+        }
+
+        return ans;
+    }
 }
