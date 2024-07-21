@@ -14,3 +14,22 @@ var filter = function(arr, fn) {
 
     return ans;
 };
+
+var filter2 = function(arr, fn) {
+    let filteredIndex = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (fn(arr[i], i)) {
+            if (i !== filteredIndex) {
+                arr[filteredIndex] += arr[i];
+                arr[i] = arr[filteredIndex] - arr[i];
+                arr[filteredIndex] -= arr[i]
+           }
+
+            filteredIndex++;
+        }
+    }
+
+    arr.length = filteredIndex;
+    return arr;
+}
