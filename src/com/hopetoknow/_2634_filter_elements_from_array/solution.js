@@ -33,3 +33,16 @@ var filter2 = function(arr, fn) {
     arr.length = filteredIndex;
     return arr;
 }
+
+var filter3 = function(arr, fn) {
+    let filteredIndex = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (fn(arr[i], i)) {
+            arr[filteredIndex++] = arr[i]
+        }
+    }
+
+    arr.length = filteredIndex;
+    return arr;
+}
