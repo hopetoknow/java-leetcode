@@ -41,4 +41,22 @@ class Solution {
 
         return ans;
     }
+
+    public String[] sortPeople3(String[] names, int[] heights) {
+        int n = names.length;
+        Integer[] indices = new Integer[n];
+
+        for (int i = 0; i < n; ++i) {
+            indices[i] = i;
+        }
+
+        Arrays.sort(indices, (i, j) -> heights[j] - heights[i]);
+        String[] ans = new String[n];
+
+        for (int i = 0; i < n; ++i) {
+            ans[i] = names[indices[i]];
+        }
+
+        return ans;
+    }
 }
