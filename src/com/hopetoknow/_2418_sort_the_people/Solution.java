@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.IntStream;
 
 class Solution {
     public String[] sortPeople(String[] names, int[] heights) {
@@ -58,5 +59,13 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public String[] sortPeople4(String[] names, int[] heights) {
+        return IntStream.range(0, names.length)
+                .boxed()
+                .sorted((i, j) -> Integer.compare(heights[j], heights[i]))
+                .map(i -> names[i])
+                .toArray(String[]::new);
     }
 }
