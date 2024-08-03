@@ -56,3 +56,16 @@ SELECT
 FROM
     Activity
 GROUP BY machine_id
+
+--MySQL (fifth solution)
+SELECT
+    machine_id,
+    ROUND(
+        AVG(
+            IF(activity_type = 'start', -timestamp, timestamp)
+        ) * 2,
+        3
+    ) AS processing_time
+FROM
+    Activity
+GROUP BY machine_id
