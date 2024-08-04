@@ -1,4 +1,4 @@
-package com.hopetoknow._0383_ransom_note;
+package com.hopetoknow.from_0000_to_0499._0383_ransom_note;
 
 import java.util.HashMap;
 import java.util.Map;

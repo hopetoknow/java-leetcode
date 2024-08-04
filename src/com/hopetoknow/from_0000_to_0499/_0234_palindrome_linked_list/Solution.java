@@ -1,4 +1,4 @@
-package com.hopetoknow._0234_palindrome_linked_list;
+package com.hopetoknow.from_0000_to_0499._0234_palindrome_linked_list;
 
 import java.util.ArrayList;
 import java.util.List;

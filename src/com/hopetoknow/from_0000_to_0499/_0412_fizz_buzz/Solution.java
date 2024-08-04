@@ -1,4 +1,4 @@
-package com.hopetoknow._0412_fizz_buzz;
+package com.hopetoknow.from_0000_to_0499._0412_fizz_buzz;
 
 import java.util.ArrayList;
 import java.util.List;
