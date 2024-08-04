@@ -1,4 +1,4 @@
-package com.hopetoknow._0771_jewels_and_stones;
+package com.hopetoknow.from_0500_to_0999._0771_jewels_and_stones;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.hopetoknow._0929_unique_email_addresses;
+package com.hopetoknow.from_0500_to_0999._0929_unique_email_addresses;
 
 import java.util.HashSet;
 import java.util.Set;

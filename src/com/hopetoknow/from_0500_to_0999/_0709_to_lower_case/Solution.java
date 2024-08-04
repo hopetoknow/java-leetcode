@@ -1,4 +1,4 @@
-package com.hopetoknow._0709_to_lower_case;
+package com.hopetoknow.from_0500_to_0999._0709_to_lower_case;
 
 class Solution {
     public String toLowerCase(String s) {

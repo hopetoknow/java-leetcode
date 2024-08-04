@@ -1,4 +1,4 @@
-package com.hopetoknow._0557_reverse_words_in_a_string_iii;
+package com.hopetoknow.from_0500_to_0999._0557_reverse_words_in_a_string_iii;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
