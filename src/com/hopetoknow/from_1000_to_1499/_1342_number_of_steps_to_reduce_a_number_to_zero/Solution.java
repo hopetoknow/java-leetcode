@@ -1,4 +1,4 @@
-package com.hopetoknow._1342_number_of_steps_to_reduce_a_number_to_zero;
+package com.hopetoknow.from_1000_to_1499._1342_number_of_steps_to_reduce_a_number_to_zero;
 
 class Solution {
     public int numberOfSteps(int num) {

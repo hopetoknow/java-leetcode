@@ -1,4 +1,4 @@
-package com.hopetoknow._1389_create_target_array_in_the_given_order;
+package com.hopetoknow.from_1000_to_1499._1389_create_target_array_in_the_given_order;
 
 import java.util.ArrayList;
 import java.util.List;

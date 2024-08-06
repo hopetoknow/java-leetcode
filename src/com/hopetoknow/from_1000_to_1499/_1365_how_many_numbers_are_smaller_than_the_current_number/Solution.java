@@ -1,4 +1,4 @@
-package com.hopetoknow._1365_how_many_numbers_are_smaller_than_the_current_number;
+package com.hopetoknow.from_1000_to_1499._1365_how_many_numbers_are_smaller_than_the_current_number;
 
 import java.util.Arrays;
 import java.util.HashMap;

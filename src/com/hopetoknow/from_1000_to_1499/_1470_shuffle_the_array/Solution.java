@@ -1,4 +1,4 @@
-package com.hopetoknow._1470_shuffle_the_array;
+package com.hopetoknow.from_1000_to_1499._1470_shuffle_the_array;
 
 class Solution {
     public int[] shuffle(int[] nums, int n) {

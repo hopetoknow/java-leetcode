@@ -1,4 +1,4 @@
-package com.hopetoknow._1108_defanging_an_ip_address;
+package com.hopetoknow.from_1000_to_1499._1108_defanging_an_ip_address;
 
 class Solution {
     public String defangIPaddr(String address) {

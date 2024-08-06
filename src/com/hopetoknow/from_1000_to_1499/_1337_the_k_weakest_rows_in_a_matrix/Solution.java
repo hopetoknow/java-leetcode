@@ -1,4 +1,4 @@
-package com.hopetoknow._1337_the_k_weakest_rows_in_a_matrix;
+package com.hopetoknow.from_1000_to_1499._1337_the_k_weakest_rows_in_a_matrix;
 
 import java.util.ArrayList;
 import java.util.Comparator;

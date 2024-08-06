@@ -1,4 +1,4 @@
-package com.hopetoknow._1480_running_sum_of_1d_array;
+package com.hopetoknow.from_1000_to_1499._1480_running_sum_of_1d_array;
 
 class Solution {
     public int[] runningSum(int[] nums) {

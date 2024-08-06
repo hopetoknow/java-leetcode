@@ -1,4 +1,4 @@
-package com.hopetoknow._1431_kids_with_the_greatest_number_of_candies;
+package com.hopetoknow.from_1000_to_1499._1431_kids_with_the_greatest_number_of_candies;
 
 import java.util.ArrayList;
 import java.util.Arrays;

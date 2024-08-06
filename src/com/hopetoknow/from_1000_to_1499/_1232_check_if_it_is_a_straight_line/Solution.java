@@ -1,4 +1,4 @@
-package com.hopetoknow._1232_check_if_it_is_a_straight_line;
+package com.hopetoknow.from_1000_to_1499._1232_check_if_it_is_a_straight_line;
 
 class Solution {
     public boolean checkStraightLine(int[][] coordinates) {

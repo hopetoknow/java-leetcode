@@ -1,4 +1,4 @@
-package com.hopetoknow._1281_subtract_the_product_and_sum_of_digits_of_an_integer;
+package com.hopetoknow.from_1000_to_1499._1281_subtract_the_product_and_sum_of_digits_of_an_integer;
 
 class Solution {
     public int subtractProductAndSum(int n) {

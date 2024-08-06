@@ -1,4 +1,4 @@
-package com.hopetoknow._1351_count_negative_numbers_in_a_sorted_matrix;
+package com.hopetoknow.from_1000_to_1499._1351_count_negative_numbers_in_a_sorted_matrix;
 
 class Solution {
     public int countNegatives(int[][] grid) {
