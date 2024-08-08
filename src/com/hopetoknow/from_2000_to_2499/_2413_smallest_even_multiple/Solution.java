@@ -1,4 +1,4 @@
-package com.hopetoknow._2413_smallest_even_multiple;
+package com.hopetoknow.from_2000_to_2499._2413_smallest_even_multiple;
 
 class Solution {
     public int smallestEvenMultiple(int n) {

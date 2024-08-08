@@ -1,4 +1,4 @@
-package com.hopetoknow._2160_minimum_sum_of_four_digit_number_after_splitting_digits;
+package com.hopetoknow.from_2000_to_2499._2160_minimum_sum_of_four_digit_number_after_splitting_digits;
 
 import java.util.Arrays;
 

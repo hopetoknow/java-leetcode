@@ -1,4 +1,4 @@
-package com.hopetoknow._2236_root_equals_sum_of_children;
+package com.hopetoknow.from_2000_to_2499._2236_root_equals_sum_of_children;
 
 /**
  * Definition for a binary tree node.

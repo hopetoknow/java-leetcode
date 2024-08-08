@@ -1,4 +1,4 @@
-package com.hopetoknow._2418_sort_the_people;
+package com.hopetoknow.from_2000_to_2499._2418_sort_the_people;
 
 import java.util.Arrays;
 import java.util.HashMap;

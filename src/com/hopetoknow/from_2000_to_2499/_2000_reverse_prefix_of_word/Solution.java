@@ -1,4 +1,4 @@
-package com.hopetoknow._2000_reverse_prefix_of_word;
+package com.hopetoknow.from_2000_to_2499._2000_reverse_prefix_of_word;
 
 class Solution {
     public String reversePrefix(String word, char ch) {

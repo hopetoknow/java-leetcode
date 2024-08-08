@@ -1,4 +1,4 @@
-package com.hopetoknow._2037_minimum_number_of_moves_to_seat_everyone;
+package com.hopetoknow.from_2000_to_2499._2037_minimum_number_of_moves_to_seat_everyone;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

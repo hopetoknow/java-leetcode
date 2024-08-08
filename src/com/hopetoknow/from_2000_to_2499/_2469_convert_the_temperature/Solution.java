@@ -1,4 +1,4 @@
-package com.hopetoknow._2469_convert_the_temperature;
+package com.hopetoknow.from_2000_to_2499._2469_convert_the_temperature;
 
 class Solution {
     public double[] convertTemperature(double celsius) {
