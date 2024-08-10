@@ -15,4 +15,19 @@ class Solution {
 
         return ans;
     }
+
+    public int countSeniors2(String[] details) {
+        int ans = 0;
+
+        for (String d : details) {
+            int tens = d.charAt(11) - '0';
+            int ones = d.charAt(12) - '0';
+
+            if (tens * 10 + ones > 60) {
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 }
