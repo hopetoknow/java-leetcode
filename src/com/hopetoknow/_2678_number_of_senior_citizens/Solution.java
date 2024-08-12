@@ -1,5 +1,7 @@
 package com.hopetoknow._2678_number_of_senior_citizens;
 
+import java.util.Arrays;
+
 class Solution {
     public int countSeniors(String[] details) {
         int ans = 0;
@@ -41,5 +43,11 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public int countSeniors4(String[] details) {
+        return (int) Arrays.stream(details)
+                .filter(d -> Integer.parseInt(d.substring(11, 13)) > 60)
+                .count();
     }
 }
