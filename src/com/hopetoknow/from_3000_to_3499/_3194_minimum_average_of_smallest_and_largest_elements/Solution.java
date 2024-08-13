@@ -1,4 +1,4 @@
-package com.hopetoknow._3194_minimum_average_of_smallest_and_largest_elements;
+package com.hopetoknow.from_3000_to_3499._3194_minimum_average_of_smallest_and_largest_elements;
 
 import java.util.Arrays;
 

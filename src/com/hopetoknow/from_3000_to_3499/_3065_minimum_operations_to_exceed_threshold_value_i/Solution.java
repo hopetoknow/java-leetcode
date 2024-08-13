@@ -1,4 +1,4 @@
-package com.hopetoknow._3065_minimum_operations_to_exceed_threshold_value_i;
+package com.hopetoknow.from_3000_to_3499._3065_minimum_operations_to_exceed_threshold_value_i;
 
 import java.util.Arrays;
 

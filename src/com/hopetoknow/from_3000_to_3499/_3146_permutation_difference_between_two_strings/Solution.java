@@ -1,4 +1,4 @@
-package com.hopetoknow._3146_permutation_difference_between_two_strings;
+package com.hopetoknow.from_3000_to_3499._3146_permutation_difference_between_two_strings;
 
 import java.util.HashMap;
 import java.util.Map;

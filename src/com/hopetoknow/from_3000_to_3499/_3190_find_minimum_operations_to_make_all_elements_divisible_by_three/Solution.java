@@ -1,4 +1,4 @@
-package com.hopetoknow._3190_find_minimum_operations_to_make_all_elements_divisible_by_three;
+package com.hopetoknow.from_3000_to_3499._3190_find_minimum_operations_to_make_all_elements_divisible_by_three;
 
 import java.util.Arrays;
 

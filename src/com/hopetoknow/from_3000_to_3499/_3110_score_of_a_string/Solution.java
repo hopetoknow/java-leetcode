@@ -1,4 +1,4 @@
-package com.hopetoknow._3110_score_of_a_string;
+package com.hopetoknow.from_3000_to_3499._3110_score_of_a_string;
 
 import java.util.stream.IntStream;
 
