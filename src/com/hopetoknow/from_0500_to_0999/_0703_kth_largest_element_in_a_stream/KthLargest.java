@@ -25,6 +25,16 @@ class KthLargest {
 
         return heap.peek();
     }
+
+    public int add2(int val) {
+        heap.offer(val);
+
+        if (heap.size() > k) {
+            heap.poll();
+        }
+
+        return heap.peek();
+    }
 }
 
 /**
