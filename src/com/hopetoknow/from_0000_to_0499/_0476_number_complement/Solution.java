@@ -10,6 +10,14 @@ class Solution {
             num /= 2;
         }
 
+//        while (num > 0) {
+//            int bit = num % 2;
+//            complement.append(bit == 0 ? 1 : 0);
+//            num /= 2;
+//        }
+//
+//        complement.reverse();
+
         int ans = 0;
 
         for (int i = complement.length() - 1, pow = 1; i >= 0; i--, pow *= 2) {
@@ -21,3 +29,4 @@ class Solution {
         return ans;
     }
 }
+
