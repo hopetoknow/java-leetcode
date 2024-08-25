@@ -28,5 +28,12 @@ class Solution {
 
         return ans;
     }
+
+    public int findComplement2(int num) {
+        int n = Integer.toBinaryString(num).length();
+        int mask = (1 << n) - 1;
+
+        return num ^ mask;
+    }
 }
 
