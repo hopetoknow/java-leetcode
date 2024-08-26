@@ -35,5 +35,12 @@ class Solution {
 
         return num ^ mask;
     }
+
+    public int findComplement3(int num) {
+        int n = 32 - Integer.numberOfLeadingZeros(num);
+        int mask = (1 << n) - 1;
+
+        return num ^ mask;
+    }
 }
 
