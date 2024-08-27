@@ -42,5 +42,17 @@ class Solution {
 
         return num ^ mask;
     }
+
+    public int findComplement4(int num) {
+        int mask = 0;
+        int power = 0;
+
+        while (mask < num) {
+            mask += Math.pow(2, power);
+            power++;
+        }
+
+        return mask - num;
+    }
 }
 
