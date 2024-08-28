@@ -54,5 +54,15 @@ class Solution {
 
         return mask - num;
     }
+
+    public int findComplement5(int num) {
+        int mask = 1;
+
+        while (mask < num) {
+            mask = (mask << 1) | 1;
+        }
+
+        return mask - num;
+    }
 }
 
