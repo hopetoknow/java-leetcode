@@ -31,4 +31,18 @@ class Solution {
 
         return ans;
     }
+
+    public int findNumbers3(int[] nums) {
+        int ans = 0;
+
+        for (int num : nums) {
+            int count = (int) Math.log10(num) + 1;
+
+            if (count % 2 == 0) {
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 }
