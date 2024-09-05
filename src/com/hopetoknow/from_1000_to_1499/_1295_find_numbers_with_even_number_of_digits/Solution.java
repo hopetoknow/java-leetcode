@@ -1,5 +1,7 @@
 package com.hopetoknow.from_1000_to_1499._1295_find_numbers_with_even_number_of_digits;
 
+import java.util.Arrays;
+
 class Solution {
     public int findNumbers(int[] nums) {
         int ans = 0;
@@ -44,5 +46,12 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public int findNumbers4(int[] nums) {
+        return (int) Arrays.stream(nums)
+                .map(num -> Integer.toString(num).length())
+                .filter(n -> n % 2 == 0)
+                .count();
     }
 }
