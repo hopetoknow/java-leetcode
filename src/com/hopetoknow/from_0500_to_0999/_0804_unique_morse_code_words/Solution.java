@@ -1,9 +1,11 @@
 package com.hopetoknow.from_0500_to_0999._0804_unique_morse_code_words;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
@@ -69,5 +71,18 @@ class Solution {
         }
 
         return set.size();
+    }
+
+    public int uniqueMorseRepresentations3(String[] words) {
+        String[] codes = new String[] {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
+                "..-", "...-", ".--", "-..-", "-.--", "--.."};
+
+        return (int) Arrays.stream(words)
+                .map(word -> word.chars()
+                        .mapToObj(ch -> codes[ch - 'a'])
+                        .collect(Collectors.joining()))
+                .distinct()
+                .count();
     }
 }
