@@ -85,4 +85,17 @@ class Solution {
                 .distinct()
                 .count();
     }
+
+    public int uniqueMorseRepresentations4(String[] words) {
+        String[] codes = new String[] {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
+                "..-", "...-", ".--", "-..-", "-.--", "--.."};
+
+        return Arrays.stream(words)
+                .map(word -> word.chars()
+                        .mapToObj(ch -> codes[ch - 'a'])
+                        .collect(Collectors.joining()))
+                .collect(Collectors.toSet())
+                .size();
+    }
 }
