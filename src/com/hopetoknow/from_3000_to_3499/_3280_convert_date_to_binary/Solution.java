@@ -10,4 +10,17 @@ class Solution {
 
         return String.join("-", dateParts);
     }
+
+    public String convertDateToBinary2(String date) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String str : date.split("-")) {
+            sb.append(Integer.toBinaryString(Integer.parseInt(str)));
+            sb.append("-");
+        }
+
+        sb.deleteCharAt(sb.length() - 1);
+
+        return sb.toString();
+    }
 }
