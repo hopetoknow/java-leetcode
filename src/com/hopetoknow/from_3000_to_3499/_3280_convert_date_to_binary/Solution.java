@@ -1,5 +1,8 @@
 package com.hopetoknow.from_3000_to_3499._3280_convert_date_to_binary;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 class Solution {
     public String convertDateToBinary(String date) {
         String[] dateParts = date.split("-");
@@ -22,5 +25,11 @@ class Solution {
         sb.deleteCharAt(sb.length() - 1);
 
         return sb.toString();
+    }
+
+    public String convertDateToBinary3(String date) {
+        return Arrays.stream(date.split("-"))
+                .map(d -> Integer.toBinaryString(Integer.parseInt(d)))
+                .collect(Collectors.joining("-"));
     }
 }
