@@ -32,4 +32,11 @@ class Solution {
                 .map(d -> Integer.toBinaryString(Integer.parseInt(d)))
                 .collect(Collectors.joining("-"));
     }
+
+    public String convertDateToBinary4(String date) {
+        return String.join("-",
+                Arrays.stream(date.split("-"))
+                        .map(d -> Integer.toBinaryString(Integer.parseInt(d)))
+                        .toArray(String[]::new));
+    }
 }
