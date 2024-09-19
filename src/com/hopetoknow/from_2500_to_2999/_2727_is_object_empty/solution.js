@@ -9,3 +9,7 @@ var isEmpty = function(obj) {
 
     return true;
 };
+
+var isEmpty2 = function(obj) {
+    return Object.keys(obj).length === 0
+};
