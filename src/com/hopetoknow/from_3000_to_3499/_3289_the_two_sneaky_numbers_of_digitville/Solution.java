@@ -26,4 +26,22 @@ class Solution {
 
         return ans;
     }
+
+    public int[] getSneakyNumbers2(int[] nums) {
+        int[] count = new int[100];
+        int[] ans = new int[2];
+        int i = 0;
+
+        for (int num : nums) {
+            if (++count[num] == 2) {
+                ans[i++] = num;
+
+                if (i == 2) {
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
 }
