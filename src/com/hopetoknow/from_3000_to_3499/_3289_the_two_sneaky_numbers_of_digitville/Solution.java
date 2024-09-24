@@ -1,7 +1,9 @@
 package com.hopetoknow.from_3000_to_3499._3289_the_two_sneaky_numbers_of_digitville;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 class Solution {
     public int[] getSneakyNumbers(int[] nums) {
@@ -39,6 +41,27 @@ class Solution {
                 if (i == 2) {
                     break;
                 }
+            }
+        }
+
+        return ans;
+    }
+
+    public int[] getSneakyNumbers3(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        int[] ans = new int[2];
+        int i = 0;
+
+        for (int num : nums) {
+            if (set.contains(num)) {
+                ans[i++] = num;
+
+                if (i == 2) {
+                    break;
+                }
+            }
+            else {
+                set.add(num);
             }
         }
 
