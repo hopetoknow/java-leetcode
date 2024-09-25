@@ -52,19 +52,45 @@ class Solution {
         int[] ans = new int[2];
         int i = 0;
 
+//        for (int num : nums) {
+//            if (set.contains(num)) {
+//                ans[i++] = num;
+//
+//                if (i == 2) {
+//                    break;
+//                }
+//            }
+//            else {
+//                set.add(num);
+//            }
+//        }
+
         for (int num : nums) {
-            if (set.contains(num)) {
+            if (!set.add(num)) {
                 ans[i++] = num;
 
                 if (i == 2) {
                     break;
                 }
             }
-            else {
-                set.add(num);
-            }
         }
 
         return ans;
     }
+
+    public int[] getSneakyNumbers4(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        return map.entrySet().stream()
+                .filter(entry -> entry.getValue() == 2)
+                .limit(2)
+                .map(Map.Entry::getKey)
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
+
 }
