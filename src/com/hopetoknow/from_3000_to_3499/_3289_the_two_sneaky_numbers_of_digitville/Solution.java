@@ -1,9 +1,11 @@
 package com.hopetoknow.from_3000_to_3499._3289_the_two_sneaky_numbers_of_digitville;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public int[] getSneakyNumbers(int[] nums) {
@@ -93,4 +95,15 @@ class Solution {
                 .toArray();
     }
 
+    public int[] getSneakyNumbers5(int[] nums) {
+        return Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(num -> num, Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() == 2)
+                .limit(2)
+                .map(Map.Entry::getKey)
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
 }
