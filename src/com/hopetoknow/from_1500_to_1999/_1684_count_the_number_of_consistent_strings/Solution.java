@@ -28,6 +28,38 @@ class Solution {
             }
         }
 
+//        int ans = words.length;
+//
+//        for (String word : words) {
+//            for (char ch : word.toCharArray()) {
+//                if (!set.contains(ch)) {
+//                    ans--;
+//                    break;
+//                }
+//            }
+//        }
+
+        return ans;
+    }
+
+    public int countConsistentStrings2(String allowed, String[] words) {
+        boolean[] abc = new boolean[26];
+
+        for (char ch : allowed.toCharArray()) {
+            abc[ch - 'a'] = true;
+        }
+
+        int ans = words.length;
+
+        for (String word : words) {
+            for (char ch : word.toCharArray()) {
+                if (!abc[ch - 'a']) {
+                    ans--;
+                    break;
+                }
+            }
+        }
+
         return ans;
     }
 }
