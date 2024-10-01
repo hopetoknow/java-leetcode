@@ -62,4 +62,25 @@ class Solution {
 
         return ans;
     }
+
+    public int countConsistentStrings3(String allowed, String[] words) {
+        int allowedBits = 0;
+
+        for (char ch : allowed.toCharArray()) {
+            allowedBits |= 1 << ch - 'a';
+        }
+
+        int ans = words.length;
+
+        for (String word : words) {
+            for (char ch : word.toCharArray()) {
+                if ((allowedBits & (1 << ch - 'a')) == 0) {
+                    ans--;
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
 }
