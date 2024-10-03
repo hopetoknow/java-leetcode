@@ -1,7 +1,9 @@
 package com.hopetoknow.from_1500_to_1999._1684_count_the_number_of_consistent_strings;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
@@ -82,5 +84,15 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public int countConsistentStrings4(String allowed, String[] words) {
+        Set<Character> set = allowed.chars()
+                .mapToObj(ch -> (char) ch)
+                .collect(Collectors.toSet());
+
+        return (int) Arrays.stream(words)
+                .filter(word -> word.chars().allMatch(ch -> set.contains((char) ch)))
+                .count();
     }
 }
