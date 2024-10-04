@@ -95,4 +95,14 @@ class Solution {
                 .filter(word -> word.chars().allMatch(ch -> set.contains((char) ch)))
                 .count();
     }
+
+    public int countConsistentStrings5(String allowed, String[] words) {
+        boolean[] abc = new boolean[26];
+
+        allowed.chars().forEach(ch -> abc[ch - 'a'] = true);
+
+        return (int) Arrays.stream(words)
+                .filter(word -> word.chars().allMatch(ch -> abc[ch - 'a']))
+                .count();
+    }
 }
