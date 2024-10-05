@@ -69,7 +69,7 @@ class Solution {
         int allowedBits = 0;
 
         for (char ch : allowed.toCharArray()) {
-            allowedBits |= 1 << ch - 'a';
+            allowedBits |= (1 << ch - 'a');
         }
 
         int ans = words.length;
@@ -104,5 +104,19 @@ class Solution {
         return (int) Arrays.stream(words)
                 .filter(word -> word.chars().allMatch(ch -> abc[ch - 'a']))
                 .count();
+    }
+
+    public int countConsistentStrings6(String allowed, String[] words) {
+        int allowedBits = allowed.chars().reduce(0, (bits, ch) -> bits | (1 << ch - 'a'));
+
+        int ans = words.length;
+
+        for (String word : words) {
+            if (word.chars().anyMatch(ch -> (allowedBits & (1 << ch - 'a')) == 0)) {
+                ans--;
+            }
+        }
+
+        return ans;
     }
 }
