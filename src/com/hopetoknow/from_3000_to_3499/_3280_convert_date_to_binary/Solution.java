@@ -39,4 +39,28 @@ class Solution {
                         .map(d -> Integer.toBinaryString(Integer.parseInt(d)))
                         .toArray(String[]::new));
     }
+
+    public String convertDateToBinary5(String date) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String str : date.split("-")) {
+            sb.append(toBinaryString(Integer.parseInt(str)));
+            sb.append("-");
+        }
+
+        sb.deleteCharAt(sb.length() - 1);
+
+        return sb.toString();
+    }
+
+    private String toBinaryString(int i) {
+        StringBuilder sb = new StringBuilder();
+
+        while (i > 0) {
+            sb.append(i % 2);
+            i /= 2;
+        }
+
+        return sb.reverse().toString();
+    }
 }
