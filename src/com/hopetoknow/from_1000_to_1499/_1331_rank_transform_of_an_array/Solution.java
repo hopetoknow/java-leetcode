@@ -43,4 +43,24 @@ class Solution {
 
         return arr;
     }
+
+    public int[] arrayRankTransform3(int[] arr) {
+        int n = arr.length;
+        int[] sortedArr = arr.clone();
+        int uniqueCount  = 0;
+
+        Arrays.sort(sortedArr);
+
+        for (int i = 0; i < n; i++) {
+            if (i == 0 || sortedArr[i] != sortedArr[i - 1]) {
+                sortedArr[uniqueCount++] = sortedArr[i];
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = Arrays.binarySearch(sortedArr, 0, uniqueCount, arr[i]) + 1;
+        }
+
+        return arr;
+    }
 }
