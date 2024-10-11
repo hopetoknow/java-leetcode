@@ -63,4 +63,26 @@ class Solution {
 
         return arr;
     }
+
+    public int[] arrayRankTransform4(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        int[] sortedArr = Arrays.stream(arr)
+                .distinct()
+                .sorted()
+                .toArray();
+
+        for (int i = 0; i < sortedArr.length; i++) {
+            map.put(sortedArr[i], i + 1);
+        }
+
+//        Arrays.stream(arr)
+//                .distinct()
+//                .sorted()
+//                .forEachOrdered(num -> map.put(num, map.size() + 1));
+
+        return Arrays.stream(arr)
+                .map(map::get)
+                .toArray();
+    }
 }
