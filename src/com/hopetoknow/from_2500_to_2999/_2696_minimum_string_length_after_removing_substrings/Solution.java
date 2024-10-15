@@ -42,4 +42,20 @@ class Solution {
 
         return s.length();
     }
+
+    public int minLength4(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        for (char ch : s.toCharArray()) {
+            if (!sb.isEmpty()
+                    && ((sb.charAt(sb.length() - 1) == 'A' && ch == 'B')
+                    || (sb.charAt(sb.length() - 1) == 'C' && ch == 'D'))) {
+                sb.setLength(sb.length() - 1);
+            } else {
+                sb.append(ch);
+            }
+        }
+
+        return sb.length();
+    }
 }
