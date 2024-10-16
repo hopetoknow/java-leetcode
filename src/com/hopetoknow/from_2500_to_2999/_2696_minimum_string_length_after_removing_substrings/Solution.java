@@ -58,4 +58,19 @@ class Solution {
 
         return sb.length();
     }
+
+    public int minLength5(String s) {
+        char[] chars = new char[s.length()];
+        int index = 0;
+
+        for (char ch : s.toCharArray()) {
+            if (index > 0 && ((chars[index - 1] == 'A' && ch == 'B') || (chars[index - 1] == 'C' && ch == 'D'))) {
+                index--;
+            } else {
+                chars[index++] = ch;
+            }
+        }
+
+        return index;
+    }
 }
