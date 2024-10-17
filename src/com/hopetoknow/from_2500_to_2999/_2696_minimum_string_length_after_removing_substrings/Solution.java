@@ -73,4 +73,23 @@ class Solution {
 
         return index;
     }
+
+    public int minLength6(String s) {
+        char[] chars = s.toCharArray();
+        int index = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            chars[index] = chars[i];
+
+            if (index > 0
+                    && (chars[index - 1] == 'A' || chars[index - 1] == 'C')
+                    && chars[index] == chars[index - 1] + 1) {
+                index--;
+            } else {
+                index++;
+            }
+        }
+
+        return index;
+    }
 }
