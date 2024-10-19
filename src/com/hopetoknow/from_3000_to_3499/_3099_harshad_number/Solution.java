@@ -12,4 +12,10 @@ class Solution {
 
         return x % sum == 0 ? sum : -1;
     }
+
+    public int sumOfTheDigitsOfHarshadNumber2(int x) {
+        int sum = String.valueOf(x).chars().map(ch -> ch - '0').sum();
+
+        return x % sum == 0 ? sum : -1;
+    }
 }
