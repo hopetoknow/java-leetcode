@@ -1,5 +1,7 @@
 package com.hopetoknow.from_3000_to_3499._3131_find_the_integer_added_to_array_i;
 
+import java.util.Arrays;
+
 class Solution {
     public int addedInteger(int[] nums1, int[] nums2) {
         int nums1Min = nums1[0];
@@ -11,5 +13,9 @@ class Solution {
         }
 
         return nums2Min - nums1Min;
+    }
+
+    public int addedInteger2(int[] nums1, int[] nums2) {
+        return Arrays.stream(nums2).min().getAsInt() - Arrays.stream(nums1).min().getAsInt();
     }
 }
