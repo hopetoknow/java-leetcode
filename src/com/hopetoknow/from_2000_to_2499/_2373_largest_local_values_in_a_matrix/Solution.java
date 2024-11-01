@@ -21,4 +21,21 @@ class Solution {
 
         return maxLocal;
     }
+
+    public int[][] largestLocal2(int[][] grid) {
+        int n = grid.length - 2;
+        int[][] maxLocal = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int k = i; k <= i + 2; k++) {
+                    for (int l = j; l <= j + 2; l++) {
+                        maxLocal[i][j] = Math.max(maxLocal[i][j], grid[k][l]);
+                    }
+                }
+            }
+        }
+
+        return maxLocal;
+    }
 }
