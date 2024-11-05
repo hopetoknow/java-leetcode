@@ -12,4 +12,8 @@ class Solution {
 
         return ans;
     }
+
+    public int minBitFlips2(int start, int goal) {
+        return Integer.bitCount(start ^ goal);
+    }
 }
