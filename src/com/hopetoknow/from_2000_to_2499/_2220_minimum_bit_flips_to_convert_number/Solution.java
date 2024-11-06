@@ -16,4 +16,19 @@ class Solution {
     public int minBitFlips2(int start, int goal) {
         return Integer.bitCount(start ^ goal);
     }
+
+    public int minBitFlips3(int start, int goal) {
+        int ans = 0;
+
+        while (start != 0 || goal != 0) {
+            if ((start & 1) != (goal & 1)) {
+                ans++;
+            }
+
+            start >>= 1;
+            goal >>= 1;
+        }
+
+        return ans;
+    }
 }
