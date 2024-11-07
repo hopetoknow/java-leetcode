@@ -31,4 +31,16 @@ class Solution {
 
         return ans;
     }
+
+    public int minBitFlips4(int start, int goal) {
+        int ans = 0;
+        int diff = start ^ goal;
+
+        while (diff != 0) {
+            diff &= diff - 1;
+            ans++;
+        }
+
+        return ans;
+    }
 }
