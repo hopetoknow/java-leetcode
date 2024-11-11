@@ -21,4 +21,19 @@ class Solution {
 
         return true;
     }
+
+    public boolean isCircularSentence2(String sentence) {
+        String[] words = sentence.split(" ");
+        int n = words.length;
+
+        for (int i = 0; i < n; i++) {
+            String word = words[i];
+
+            if (word.charAt(word.length() - 1) != words[(i + 1) % n].charAt(0)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
