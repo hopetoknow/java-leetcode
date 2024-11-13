@@ -1,5 +1,7 @@
 package com.hopetoknow.from_2000_to_2499._2490_circular_sentence;
 
+import java.util.stream.IntStream;
+
 class Solution {
     public boolean isCircularSentence(String sentence) {
         String[] words = sentence.split(" ");
@@ -47,5 +49,13 @@ class Solution {
         }
 
         return sentence.charAt(0) == sentence.charAt(n - 1);
+    }
+
+    public boolean isCircularSentence4(String sentence) {
+        String[] words = sentence.split(" ");
+        int n = words.length;
+
+        return IntStream.range(0, n)
+                .allMatch(i -> words[i].charAt(words[i].length() - 1) == words[(i + 1) % n].charAt(0));
     }
 }
