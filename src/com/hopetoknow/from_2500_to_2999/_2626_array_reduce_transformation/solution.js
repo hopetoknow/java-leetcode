@@ -13,3 +13,12 @@ var reduce = function(nums, fn, init) {
 
     return val;
 };
+
+var reduce2 = function(nums, fn, init) {
+    for (const num of nums) {
+        init = fn(init, num);
+    }
+
+    return init;
+};
+
