@@ -7,9 +7,6 @@ class Foo {
     private final CountDownLatch firstLatch = new CountDownLatch(1);
     private final CountDownLatch secondLatch = new CountDownLatch(1);
 
-    public Foo() {
-    }
-
     public void first(Runnable printFirst) throws InterruptedException {
         printFirst.run();
         firstLatch.countDown();
@@ -27,12 +24,9 @@ class Foo {
     }
 }
 
-class Foo1 {
+class Foo2 {
     private final Semaphore firstSemaphore = new Semaphore(0);
     private final Semaphore secondSemaphore = new Semaphore(0);
-
-    public Foo1() {
-    }
 
     public void first(Runnable printFirst) throws InterruptedException {
         printFirst.run();
@@ -47,6 +41,35 @@ class Foo1 {
 
     public void third(Runnable printThird) throws InterruptedException {
         secondSemaphore.acquire();
+        printThird.run();
+    }
+}
+
+class Foo3 {
+    private boolean isFirstExecuted = false;
+    private boolean isSecondExecuted = false;
+
+    public synchronized void first(Runnable printFirst) throws InterruptedException {
+        printFirst.run();
+        isFirstExecuted = true;
+        notifyAll();
+    }
+
+    public synchronized void second(Runnable printSecond) throws InterruptedException {
+        while (!isFirstExecuted) {
+            wait();
+        }
+
+        printSecond.run();
+        isSecondExecuted = true;
+        notify();
+    }
+
+    public synchronized void third(Runnable printThird) throws InterruptedException {
+        while (!isSecondExecuted) {
+            wait();
+        }
+
         printThird.run();
     }
 }
