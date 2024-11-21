@@ -73,3 +73,39 @@ class Foo3 {
         printThird.run();
     }
 }
+
+class Foo4 {
+    private final Object monitor = new Object();
+    private boolean isFirstExecuted = false;
+    private boolean isSecondExecuted = false;
+
+    public void first(Runnable printFirst) throws InterruptedException {
+        synchronized (monitor) {
+            printFirst.run();
+            isFirstExecuted = true;
+            monitor.notifyAll();
+        }
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        synchronized (monitor) {
+            while (!isFirstExecuted) {
+                monitor.wait();
+            }
+
+            printSecond.run();
+            isSecondExecuted = true;
+            monitor.notifyAll();
+        }
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        synchronized (monitor) {
+            while (!isSecondExecuted) {
+                monitor.wait();
+            }
+
+            printThird.run();
+        }
+    }
+}
