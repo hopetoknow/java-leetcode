@@ -2,6 +2,9 @@ package com.hopetoknow.from_1000_to_1499._1114_print_in_order;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class Foo {
     private final CountDownLatch firstLatch = new CountDownLatch(1);
@@ -106,6 +109,56 @@ class Foo4 {
             }
 
             printThird.run();
+        }
+    }
+}
+
+class Foo5 {
+    private final Lock lock = new ReentrantLock();
+    private final Condition canProceedToSecond = lock.newCondition();
+    private final Condition canProceedToThird = lock.newCondition();
+    private boolean isFirstExecuted = false;
+    private boolean isSecondExecuted = false;
+
+    public void first(Runnable printFirst) throws InterruptedException {
+        lock.lock();
+
+        try {
+            printFirst.run();
+            isFirstExecuted = true;
+            canProceedToSecond.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        lock.lock();
+
+        try {
+            while (!isFirstExecuted) {
+                canProceedToSecond.await();
+            }
+
+            printSecond.run();
+            isSecondExecuted = true;
+            canProceedToThird.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        lock.lock();
+
+        try {
+            while (!isSecondExecuted) {
+                canProceedToThird.await();
+            }
+
+            printThird.run();
+        } finally {
+            lock.unlock();
         }
     }
 }
