@@ -33,6 +33,15 @@ class Solution {
         return head;
     }
 
+    public ListNode insertGreatestCommonDivisors3(ListNode head) {
+        for (ListNode previous = head, current = head.next; current != null; previous = current, current = current.next) {
+            int gcd = gcd(previous.val, current.val);
+            previous.next = new ListNode(gcd, current);
+        }
+
+        return head;
+    }
+
     private int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }
