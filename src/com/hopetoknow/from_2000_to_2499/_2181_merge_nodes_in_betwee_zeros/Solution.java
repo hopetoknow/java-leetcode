@@ -58,4 +58,22 @@ class Solution {
 
         return newHead.next;
     }
+
+    public ListNode mergeNodes3(ListNode head) {
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+        int sum = 0;
+
+        for (ListNode current = head.next; current != null; current = current.next) {
+            if (current.val != 0) {
+                sum += current.val;
+            } else {
+                tail.next = new ListNode(sum);
+                tail = tail.next;
+                sum = 0;
+            }
+        }
+
+        return dummy.next;
+    }
 }
