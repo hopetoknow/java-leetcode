@@ -14,4 +14,8 @@ class Solution {
 
         return max;
     }
+
+    public int minPartitions2(String n) {
+        return n.chars().max().getAsInt() - '0';
+    }
 }
