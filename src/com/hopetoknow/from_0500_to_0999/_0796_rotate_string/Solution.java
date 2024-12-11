@@ -14,4 +14,8 @@ class Solution {
 
         return false;
     }
+
+    public boolean rotateString2(String s, String goal) {
+        return s.length() == goal.length() && (s + s).contains(goal);
+    }
 }
