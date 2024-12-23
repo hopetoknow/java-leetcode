@@ -20,4 +20,23 @@ class Solution {
 
         return image;
     }
+
+    public int[][] flipAndInvertImage2(int[][] image) {
+        int n = image.length;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                if (image[i][j] == image[i][n - j - 1]) {
+                    image[i][j] ^= 1;
+                    image[i][n - j - 1] ^= 1;
+                }
+            }
+
+            if (n % 2 == 1) {
+                image[i][n / 2] ^= 1;
+            }
+        }
+
+        return image;
+    }
 }
