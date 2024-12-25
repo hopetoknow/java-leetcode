@@ -58,4 +58,16 @@ class Solution {
 
         return image;
     }
+
+    public int[][] flipAndInvertImage4(int[][] image) {
+        for (int[] row : image) {
+            for (int i = 0, j = row.length - 1; i <= j; i++, j--) {
+                if (row[i] == row[j]) {
+                    row[i] = row[j] ^= 1;
+                }
+            }
+        }
+
+        return image;
+    }
 }
