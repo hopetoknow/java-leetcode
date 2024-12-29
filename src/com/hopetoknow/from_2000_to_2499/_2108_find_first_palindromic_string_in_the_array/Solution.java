@@ -20,4 +20,14 @@ class Solution {
 
         return "";
     }
+
+    public String firstPalindrome2(String[] words) {
+        for (String word : words) {
+            if (new StringBuilder(word).reverse().toString().equals(word)) {
+                return word;
+            }
+        }
+
+        return "";
+    }
 }
