@@ -15,5 +15,19 @@ class Solution {
 
         return ans;
     }
-}
 
+    public int countAsterisks2(String s) {
+        int asteriskCount = 0;
+        int barCount = 0;
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '|') {
+                barCount++;
+            } else if (ch == '*' && barCount % 2 == 0) {
+                asteriskCount++;
+            }
+        }
+
+        return asteriskCount;
+    }
+}
