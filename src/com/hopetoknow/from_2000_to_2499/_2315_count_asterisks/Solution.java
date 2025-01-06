@@ -30,4 +30,20 @@ class Solution {
 
         return asteriskCount;
     }
+
+    public int countAsterisks3(String s) {
+        int ans = 0;
+        boolean outsideBars = true;
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '|') {
+                outsideBars = !outsideBars;
+            }
+            else if (ch == '*' && outsideBars) {
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 }
