@@ -46,4 +46,19 @@ class Solution {
 
         return ans;
     }
+
+    public int countAsterisks4(String s) {
+        int ans = 0;
+        int isOutsideBars = 1;
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '*') {
+                ans += isOutsideBars;
+            } else if (ch == '|') {
+                isOutsideBars ^= 1;
+            }
+        }
+
+        return ans;
+    }
 }
