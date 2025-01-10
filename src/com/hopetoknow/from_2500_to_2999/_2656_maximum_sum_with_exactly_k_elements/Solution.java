@@ -15,4 +15,23 @@ class Solution {
 
         return ans;
     }
+
+    public int maximizeSum2(int[] nums, int k) {
+        int max = 1;
+
+        for (int num : nums) {
+            if (num > max) {
+                max = num;
+            }
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < k; i++) {
+            ans += max;
+            max++;
+        }
+
+        return ans;
+    }
 }
