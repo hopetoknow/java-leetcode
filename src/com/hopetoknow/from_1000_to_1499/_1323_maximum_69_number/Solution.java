@@ -32,4 +32,8 @@ class Solution {
 
         return Integer.parseInt(sb.toString());
     }
+
+    public int maximum69Number3(int num) {
+        return Integer.parseInt(Integer.toString(num).replaceFirst("6", "9"));
+    }
 }
