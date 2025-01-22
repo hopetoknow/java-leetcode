@@ -40,4 +40,17 @@ class Solution {
     public int maximum69Number4(int num) {
         return Integer.parseInt((num + "").replaceFirst("6", "9"));
     }
+
+    public int maximum69Number5(int num) {
+        char[] digits = String.valueOf(num).toCharArray();
+
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] == '6') {
+                digits[i] = '9';
+                return Integer.parseInt(new String(digits));
+            }
+        }
+
+        return num;
+    }
 }
