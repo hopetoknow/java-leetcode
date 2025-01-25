@@ -17,4 +17,14 @@ class Solution {
 
         return evenSum == oddSum;
     }
+
+    public boolean isBalanced2(String num) {
+        int[] sums = new int[2];
+
+        for (int i = 0; i < num.length(); ++i) {
+            sums[i & 1] += num.charAt(i) - '0';
+        }
+
+        return sums[0] == sums[1];
+    }
 }
