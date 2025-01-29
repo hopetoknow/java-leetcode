@@ -16,4 +16,23 @@ class Solution {
 
         return minChairs;
     }
+
+    public int minimumChairs2(String s) {
+        int currentChairs = 0;
+        int minChairs = 0;
+
+        for (char ch : s.toCharArray()) {
+            if (ch == 'E') {
+                if (currentChairs > 0) {
+                    currentChairs--;
+                } else {
+                    minChairs++;
+                }
+            } else {
+                currentChairs++;
+            }
+        }
+
+        return minChairs;
+    }
 }
