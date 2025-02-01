@@ -20,4 +20,20 @@ class Solution {
 
         return ans;
     }
+
+    public int finalPositionOfSnake2(int n, List<String> commands) {
+        int i = 0;
+        int j = 0;
+
+        for (String command : commands) {
+            switch (command.charAt(0)) {
+                case 'U' -> i--;
+                case 'R' -> j++;
+                case 'D' -> i++;
+                case 'L' -> j--;
+            }
+        }
+
+        return i * n + j;
+    }
 }
