@@ -1,6 +1,7 @@
 package com.hopetoknow.from_3000_to_3499._3248_snake_in_matrix;
 
 import java.util.List;
+import java.util.Map;
 
 class Solution {
     public int finalPositionOfSnake(int n, List<String> commands) {
@@ -35,5 +36,21 @@ class Solution {
         }
 
         return i * n + j;
+    }
+
+    public int finalPositionOfSnake3(int n, List<String> commands) {
+        Map<String, Integer> map = Map.of(
+                "UP", -n,
+                "RIGHT", 1,
+                "DOWN", n,
+                "LEFT", -1
+        );
+        int ans = 0;
+
+        for (String command : commands) {
+            ans += map.get(command);
+        }
+
+        return ans;
     }
 }
