@@ -20,4 +20,22 @@ class Solution {
 
         return ans;
     }
+
+    public int sumOfUnique2(int[] nums) {
+        int[] count = new int[101];
+
+        for (int num : nums) {
+            count[num]++;
+        }
+
+        int ans = 0;
+
+        for (int num : nums) {
+            if (count[num] == 1) {
+                ans += num;
+            }
+        }
+
+        return ans;
+    }
 }
