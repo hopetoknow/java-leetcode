@@ -38,4 +38,21 @@ class Solution {
 
         return ans;
     }
+
+    public int sumOfUnique3(int[] nums) {
+        int[] count = new int[101];
+        int ans = 0;
+
+        for (int num : nums) {
+            count[num]++;
+
+            if (count[num] == 1) {
+                ans += num;
+            } else if (count[num] == 2) {
+                ans -= num;
+            }
+        }
+
+        return ans;
+    }
 }
