@@ -35,4 +35,35 @@ class Solution {
 
         return ans;
     }
+
+    public List<List<Integer>> findDifference2(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = toSet(nums1);
+        Set<Integer> set2 = toSet(nums2);
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        for (int num : set1) {
+            if (!set2.contains(num)) {
+                list1.add(num);
+            }
+        }
+
+        for (int num : set2) {
+            if (!set1.contains(num)) {
+                list2.add(num);
+            }
+        }
+
+        return List.of(list1, list2);
+    }
+
+    private Set<Integer> toSet(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        return set;
+    }
 }
