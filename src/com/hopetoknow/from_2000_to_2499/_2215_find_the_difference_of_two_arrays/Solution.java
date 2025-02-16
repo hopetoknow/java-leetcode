@@ -66,4 +66,30 @@ class Solution {
 
         return set;
     }
+
+    public List<List<Integer>> findDifference3(int[] nums1, int[] nums2) {
+        return List.of(getUniqueElementsInFirstArray(nums1, nums2),
+                getUniqueElementsInFirstArray(nums2, nums1));
+    }
+
+    private List<Integer> getUniqueElementsInFirstArray(int[] nums1, int[] nums2) {
+        Set<Integer> set = new HashSet<>();
+
+        for (int num1 : nums1) {
+            boolean existsInNums2 = false;
+
+            for (int num2 : nums2) {
+                if (num1 == num2) {
+                    existsInNums2 = true;
+                    break;
+                }
+            }
+
+            if (!existsInNums2) {
+                set.add(num1);
+            }
+        }
+
+        return new ArrayList<>(set);
+    }
 }
