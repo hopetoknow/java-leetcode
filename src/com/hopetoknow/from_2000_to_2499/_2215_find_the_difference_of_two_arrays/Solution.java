@@ -126,4 +126,16 @@ class Solution {
                 set2.stream().filter(num -> !set1.contains(num)).toList()
         );
     }
+
+    public List<List<Integer>> findDifference6(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
+        Set<Integer> set2 = Arrays.stream(nums2)
+                .filter(num -> !set1.contains(num))
+                .boxed()
+                .collect(Collectors.toSet());
+
+        Arrays.stream(nums2).forEach(set1::remove);
+
+        return List.of(new ArrayList<>(set1), new ArrayList<>(set2));
+    }
 }
