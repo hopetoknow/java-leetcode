@@ -138,4 +138,17 @@ class Solution {
 
         return List.of(new ArrayList<>(set1), new ArrayList<>(set2));
     }
+
+    public List<List<Integer>> findDifference7(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
+        Set<Integer> set2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet());
+
+        Set<Integer> unique1 = new HashSet<>(set1);
+        Set<Integer> unique2 = new HashSet<>(set2);
+
+        unique1.removeAll(set2);
+        unique2.removeAll(set1);
+
+        return List.of(new ArrayList<>(unique1), new ArrayList<>(unique2));
+    }
 }
