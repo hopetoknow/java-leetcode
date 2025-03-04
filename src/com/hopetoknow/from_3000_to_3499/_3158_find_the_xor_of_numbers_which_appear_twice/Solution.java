@@ -21,4 +21,19 @@ class Solution {
 
         return ans;
     }
+
+    public int duplicateNumbersXOR2(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int ans = 0;
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+
+            if (map.get(num) == 2) {
+                ans ^= num;
+            }
+        }
+
+        return ans;
+    }
 }
