@@ -1,7 +1,9 @@
 package com.hopetoknow.from_3000_to_3499._3158_find_the_xor_of_numbers_which_appear_twice;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 class Solution {
     public int duplicateNumbersXOR(int[] nums) {
@@ -31,6 +33,21 @@ class Solution {
 
             if (map.get(num) == 2) {
                 ans ^= num;
+            }
+        }
+
+        return ans;
+    }
+
+    public int duplicateNumbersXOR3(int[] nums) {
+        Set<Integer> seen = new HashSet<>();
+        int ans = 0;
+
+        for (int num : nums) {
+            if (seen.contains(num)) {
+                ans ^= num;
+            } else {
+                seen.add(num);
             }
         }
 
