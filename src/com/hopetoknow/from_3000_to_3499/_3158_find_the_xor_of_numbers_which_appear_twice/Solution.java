@@ -53,4 +53,17 @@ class Solution {
 
         return ans;
     }
+
+    public int duplicateNumbersXOR4(int[] nums) {
+        Set<Integer> seen = new HashSet<>();
+        int ans = 0;
+
+        for (int num : nums) {
+            if (!seen.add(num)) {
+                ans ^= num;
+            }
+        }
+
+        return ans;
+    }
 }
