@@ -66,4 +66,17 @@ class Solution {
 
         return ans;
     }
+
+    public int duplicateNumbersXOR5(int[] nums) {
+        int[] count = new int[51];
+        int ans = 0;
+
+        for (int num : nums) {
+            if (++count[num] == 2) {
+                ans ^= num;
+            }
+        }
+
+        return ans;
+    }
 }
