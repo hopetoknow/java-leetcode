@@ -42,4 +42,10 @@ class Solution {
 
         return false;
     }
+
+    public boolean containsDuplicate4(int[] nums) {
+        Set<Integer> seen = new HashSet<>();
+
+        return Arrays.stream(nums).anyMatch(num -> !seen.add(num));
+    }
 }
