@@ -26,4 +26,15 @@ class Solution {
 
         return n * (n + 1) / 2 - sum;
     }
+
+    public int missingNumber3(int[] nums) {
+        int n = nums.length;
+        int ans = n;
+
+        for (int i = 0; i < n; i++) {
+            ans += i - nums[i];
+        }
+
+        return ans;
+    }
 }
