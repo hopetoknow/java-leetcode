@@ -1,5 +1,7 @@
 package com.hopetoknow.from_0000_to_0499._0268_missing_number;
 
+import java.util.Arrays;
+
 class Solution {
     public int missingNumber(int[] nums) {
         int expectedSum = 0;
@@ -47,5 +49,23 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public int missingNumber5(int[] nums) {
+        Arrays.sort(nums);
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (mid == nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return left;
     }
 }
