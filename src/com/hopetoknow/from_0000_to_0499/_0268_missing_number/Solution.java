@@ -68,4 +68,21 @@ class Solution {
 
         return left;
     }
+
+    public int missingNumber6(int[] nums) {
+        int[] present = new int[nums.length + 1];
+        Arrays.fill(present, -1);
+
+        for (int num : nums) {
+            present[num] = num;
+        }
+
+        for (int i = 0; i < present.length; i++) {
+            if (present[i] == -1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
