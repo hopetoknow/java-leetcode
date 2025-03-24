@@ -1,6 +1,8 @@
 package com.hopetoknow.from_0000_to_0499._0268_missing_number;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution {
     public int missingNumber(int[] nums) {
@@ -79,6 +81,22 @@ class Solution {
 
         for (int i = 0; i < present.length; i++) {
             if (present[i] == -1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int missingNumber7(int[] nums) {
+        Set<Integer> present = new HashSet<>();
+
+        for (int num : nums) {
+            present.add(num);
+        }
+
+        for (int i = 0; i <= nums.length; i++) {
+            if (!present.contains(i)) {
                 return i;
             }
         }
