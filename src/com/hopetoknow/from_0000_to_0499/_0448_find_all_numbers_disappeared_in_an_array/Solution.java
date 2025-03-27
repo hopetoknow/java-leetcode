@@ -25,4 +25,30 @@ class Solution {
 
         return ans;
     }
+
+    public List<Integer> findDisappearedNumbers2(int[] nums) {
+        int n = nums.length;
+
+        for (int i = 0; i < n;) {
+            int correctIndex = nums[i] - 1;
+
+            if (nums[i] != nums[correctIndex]) {
+                int temp = nums[i];
+                nums[i] = nums[correctIndex];
+                nums[correctIndex] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1) {
+                ans.add(i + 1);
+            }
+        }
+
+        return ans;
+    }
 }
