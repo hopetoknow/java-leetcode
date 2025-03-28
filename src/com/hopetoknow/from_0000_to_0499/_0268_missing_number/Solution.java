@@ -103,4 +103,21 @@ class Solution {
 
         return -1;
     }
+
+    public int missingNumber8(int[] nums) {
+        int n = nums.length;
+        boolean[] present = new boolean[n + 1];
+
+        for (int num : nums) {
+            present[num] = true;
+        }
+
+        for (int i = 0; i <= n; i++) {
+            if (!present[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
