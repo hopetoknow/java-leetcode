@@ -1,7 +1,9 @@
 package com.hopetoknow.from_0000_to_0499._0448_find_all_numbers_disappeared_in_an_array;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
@@ -86,6 +88,24 @@ class Solution {
 
         for (int i = 1; i <= n; i++) {
             if (!present[i]) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
+
+    public List<Integer> findDisappearedNumbers5(int[] nums) {
+        Set<Integer> present = new HashSet<>();
+
+        for (int num : nums) {
+            present.add(num);
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 1; i <= nums.length; i++) {
+            if (!present.contains(i)) {
                 ans.add(i);
             }
         }
