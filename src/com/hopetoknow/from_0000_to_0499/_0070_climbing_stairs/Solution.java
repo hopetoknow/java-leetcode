@@ -36,4 +36,21 @@ class Solution {
 
         return dp[n % 3];
     }
+
+    public int climbStairs3(int n) {
+        if (n == 1) {
+            return 1;
+        }
+
+        int prev = 1;
+        int curr = 2;
+
+        for (int i = 3; i <= n; i++) {
+            int temp = prev + curr;
+            prev = curr;
+            curr = temp;
+        }
+
+        return curr;
+    }
 }
