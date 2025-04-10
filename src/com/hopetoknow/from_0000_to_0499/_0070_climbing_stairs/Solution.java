@@ -53,4 +53,21 @@ class Solution {
 
         return curr;
     }
+
+    public int climbStairs4(int n) {
+        if (n <= 3) {
+            return n;
+        }
+
+        int prev = 3;
+        int curr = 5;
+
+        for (int i = 5; i <= n; i++) {
+            int temp = prev + curr;
+            prev = curr;
+            curr = temp;
+        }
+
+        return curr;
+    }
 }
