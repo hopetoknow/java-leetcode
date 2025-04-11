@@ -1,5 +1,8 @@
 package com.hopetoknow.from_0000_to_0499._0070_climbing_stairs;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public int climbStairs(int n) {
         if (n == 1) {
@@ -67,6 +70,26 @@ class Solution {
             prev = curr;
             curr = temp;
         }
+
+        return curr;
+    }
+
+    public int climbStairs5(int n) {
+        Map<Integer, Integer> memo = new HashMap<>();
+        return climbStairs(n, memo);
+    }
+
+    private int climbStairs(int n, Map<Integer, Integer> memo) {
+        if (n <= 2) {
+            return n;
+        }
+
+        if (memo.containsKey(n)) {
+            return memo.get(n);
+        }
+
+        int curr = climbStairs(n - 1, memo) + climbStairs(n - 2, memo);
+        memo.put(n, curr);
 
         return curr;
     }
