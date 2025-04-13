@@ -1,5 +1,6 @@
 package com.hopetoknow.from_0000_to_0499._0070_climbing_stairs;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -111,5 +112,42 @@ class Solution {
         memo[n] = climbStairs(n - 1, memo) + climbStairs(n - 2, memo);
 
         return memo[n];
+    }
+
+    public int climbStairs7(int n) {
+        BigInteger[] memo = new BigInteger[46];
+        memo[0] = BigInteger.ONE;
+        memo[1] = BigInteger.ONE;
+
+        int ways = 1;
+
+        for (int i = 1; i <= n / 2; i++) {
+            int num_1s = n - 2 * i;
+            int num_2s = i;
+            int total_moves = num_1s + num_2s;
+
+            BigInteger waysForThisCombo = factorial(total_moves, memo)
+                    .divide(factorial(num_1s, memo).multiply(factorial(num_2s, memo)));
+
+            ways += waysForThisCombo.intValue();
+        }
+
+        return ways;
+    }
+
+    private static BigInteger factorial(int n, BigInteger[] memo) {
+        if (memo[n] != null) {
+            return memo[n];
+        }
+
+        BigInteger result = BigInteger.ONE;
+
+        for (int i = 2; i <= n; i++) {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+
+        memo[n] = result;
+
+        return result;
     }
 }
