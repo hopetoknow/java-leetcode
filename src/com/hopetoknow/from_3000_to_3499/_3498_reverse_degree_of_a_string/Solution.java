@@ -11,4 +11,15 @@ class Solution {
 
         return ans;
     }
+
+    public int reverseDegree2(String s) {
+        int ans = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            int reverseAlphabetIndex = 123 - s.charAt(i);
+            ans += reverseAlphabetIndex * (i + 1);
+        }
+
+        return ans;
+    }
 }
