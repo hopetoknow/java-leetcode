@@ -29,4 +29,18 @@ class Solution {
 
         return ans;
     }
+
+    public int[] minCosts3(int[] cost) {
+        int min = cost[0];
+
+        for (int i = 1; i < cost.length; i++) {
+            if (cost[i] > min) {
+                cost[i] = min;
+            } else {
+                min = cost[i];
+            }
+        }
+
+        return cost;
+    }
 }
