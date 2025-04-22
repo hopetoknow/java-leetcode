@@ -1,5 +1,7 @@
 package com.hopetoknow.from_3500_to_3999._3502_minimum_cost_to_reach_every_position;
 
+import java.util.Arrays;
+
 class Solution {
     public int[] minCosts(int[] cost) {
         int n = cost.length;
@@ -42,5 +44,16 @@ class Solution {
         }
 
         return cost;
+    }
+
+    public int[] minCosts4(int[] cost) {
+        int[] min = {cost[0]};
+
+        return Arrays.stream(cost)
+                .map(c -> {
+                    min[0] = Math.min(min[0], c);
+                    return min[0];
+                })
+                .toArray();
     }
 }
