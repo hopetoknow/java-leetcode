@@ -13,4 +13,11 @@ class Solution {
             return 0;
         }
     }
+
+    public int findClosest2(int x, int y, int z) {
+        int d1 = Math.abs(z - x);
+        int d2 = Math.abs(z - y);
+
+        return d1 < d2 ? 1 : (d2 < d1 ? 2 : 0);
+    }
 }
