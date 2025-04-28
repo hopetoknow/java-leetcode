@@ -18,12 +18,37 @@ class Solution {
             }
 
             rodToColorsMap.get(rod).add(color);
+
+            // Lines 16-20 can be replaced with a cleaner one-liner:
+            // rodToColorsMap.computeIfAbsent(rod, k -> new HashSet<>()).add(color);
         }
 
         int count = 0;
 
         for (Set<Character> colors : rodToColorsMap.values()) {
             if (colors.size() == 3) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int countPoints2(String rings) {
+        boolean[][] rods = new boolean[10][3];
+
+        for (int i = 0; i < rings.length(); i += 2) {
+            char color = rings.charAt(i);
+            int rod = rings.charAt(i + 1) - '0';
+
+            int colorIndex = (color == 'R') ? 0 : (color == 'G' ? 1 : 2);
+            rods[rod][colorIndex] = true;
+        }
+
+        int count = 0;
+
+        for (boolean[] rod : rods) {
+            if (rod[0] && rod[1] && rod[2]) {
                 count++;
             }
         }
