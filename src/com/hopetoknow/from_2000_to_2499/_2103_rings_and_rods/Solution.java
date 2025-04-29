@@ -55,4 +55,26 @@ class Solution {
 
         return count;
     }
+
+    public int countPoints3(String rings) {
+        int[] rods = new int[10];
+
+        for (int i = 0; i < rings.length(); i += 2) {
+            char color = rings.charAt(i);
+            int rod = rings.charAt(i + 1) - '0';
+
+            int colorBit = (color == 'R') ? 1 : (color == 'G' ? 2 : 4);
+            rods[rod] |= colorBit;
+        }
+
+        int count = 0;
+
+        for (int rod : rods) {
+            if (rod == 7) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
