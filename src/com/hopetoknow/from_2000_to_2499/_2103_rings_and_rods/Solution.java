@@ -77,4 +77,29 @@ class Solution {
 
         return count;
     }
+
+    public int countPoints4(String rings) {
+        int[] rods = new int[10];
+        int[] colorMasks = new int['R' + 1];
+        colorMasks['R'] = 1;
+        colorMasks['G'] = 2;
+        colorMasks['B'] = 4;
+
+        for (int i = 0; i < rings.length(); i += 2) {
+            char color = rings.charAt(i);
+            int rod = rings.charAt(i + 1) - '0';
+
+            rods[rod] |= colorMasks[color];
+        }
+
+        int count = 0;
+
+        for (int rod : rods) {
+            if (rod == 7) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
