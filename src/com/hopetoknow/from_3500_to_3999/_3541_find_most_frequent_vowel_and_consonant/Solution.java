@@ -28,6 +28,35 @@ class Solution {
         return maxVowelFreq + maxConsonantFreq;
     }
 
+    public int maxFreqSum2(String s) {
+        int[] freq = new int[26];
+
+        for (char ch : s.toCharArray()) {
+            freq[ch - 'a']++;
+        }
+
+        int maxVowelFreq = 0;
+        int maxConsonantFreq = 0;
+
+        for (int i = 0; i < 26; i++) {
+            int currentFreq = freq[i];
+
+            if (currentFreq == 0) {
+                continue;
+            }
+
+            char ch = (char) ('a' + i);
+
+            if (isVowel(ch)) {
+                maxVowelFreq = Math.max(maxVowelFreq, currentFreq);
+            } else {
+                maxConsonantFreq = Math.max(maxConsonantFreq, currentFreq);
+            }
+        }
+
+        return maxVowelFreq + maxConsonantFreq;
+    }
+
     private boolean isVowel(char ch) {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
