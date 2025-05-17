@@ -12,4 +12,16 @@ class Solution {
 
         return count;
     }
+
+    public int countKeyChanges2(String s) {
+        int count = 0;
+
+        for (int i = 1; i < s.length(); i++) {
+            if ((s.charAt(i) | 32) != (s.charAt(i - 1) | 32)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
