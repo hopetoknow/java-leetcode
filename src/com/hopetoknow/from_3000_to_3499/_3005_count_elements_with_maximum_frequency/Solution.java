@@ -27,4 +27,28 @@ class Solution {
 
         return maxFreqCount * maxFreq;
     }
+
+    public int maxFrequencyElements2(int[] nums) {
+        int[] freq = new int[101];
+
+        for (int num : nums) {
+            freq[num]++;
+        }
+
+        int maxFreq = 1;
+
+        for (int f : freq) {
+            maxFreq = Math.max(maxFreq, f);
+        }
+
+        int maxFreqCount = 0;
+
+        for (int f : freq){
+            if (f == maxFreq) {
+                maxFreqCount++;
+            }
+        }
+
+        return maxFreqCount * maxFreq;
+    }
 }
