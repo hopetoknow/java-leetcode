@@ -13,4 +13,22 @@ class Solution {
 
         return sum;
     }
+
+    public int sumOfSquares2(int[] nums) {
+        int n = nums.length;
+        int sum = 0;
+
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                sum += nums[i - 1] * nums[i - 1];
+
+                if (i != n / i) {
+                    int otherDivisor = n / i;
+                    sum += nums[otherDivisor - 1] * nums[otherDivisor - 1];
+                }
+            }
+        }
+
+        return sum;
+    }
 }
