@@ -1,5 +1,7 @@
 package com.hopetoknow.from_2500_to_2999._2778_sum_of_squares_of_special_elements;
 
+import java.util.stream.IntStream;
+
 class Solution {
     public int sumOfSquares(int[] nums) {
         int n = nums.length;
@@ -30,5 +32,14 @@ class Solution {
         }
 
         return sum;
+    }
+
+    public int sumOfSquares3(int[] nums) {
+        int n = nums.length;
+
+        return IntStream.rangeClosed(1, n)
+                .filter(i -> n % i == 0)
+                .map(i -> nums[i - 1] * nums[i - 1])
+                .sum();
     }
 }
