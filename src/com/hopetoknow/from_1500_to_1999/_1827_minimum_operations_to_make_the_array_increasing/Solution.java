@@ -13,4 +13,20 @@ class Solution {
 
         return totalOperations;
     }
+
+    public int minOperations2(int[] nums) {
+        int totalOperations = 0;
+        int previousValue = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] <= previousValue) {
+                totalOperations += previousValue - nums[i] + 1;
+                previousValue += 1;
+            } else {
+                previousValue = nums[i];
+            }
+        }
+
+        return totalOperations;
+    }
 }
