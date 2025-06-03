@@ -29,4 +29,16 @@ class Solution {
 
         return totalOperations;
     }
+
+    public int minOperations3(int[] nums) {
+        int totalOperations = 0;
+        int previousValue = 0;
+
+        for (int num : nums) {
+            totalOperations += Math.max(0, previousValue + 1 - num);
+            previousValue = Math.max(previousValue + 1, num);
+        }
+
+        return totalOperations;
+    }
 }
