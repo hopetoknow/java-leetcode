@@ -1,5 +1,8 @@
 package com.hopetoknow.from_2500_to_2999._2553_separate_the_digits_in_an_array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     public int[] separateDigits(int[] nums) {
         int n = 0;
@@ -38,5 +41,27 @@ class Solution {
         }
 
         return count;
+    }
+
+    public int[] separateDigits2(int[] nums) {
+        List<Integer> digits = new ArrayList<>();
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int num = nums[i];
+
+            while (num > 0) {
+                digits.add(num % 10);
+                num /= 10;
+            }
+        }
+
+        int n = digits.size();
+        int[] answer = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            answer[i] = digits.get(n - i - 1);
+        }
+
+        return answer;
     }
 }
