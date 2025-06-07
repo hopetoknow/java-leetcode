@@ -64,4 +64,22 @@ class Solution {
 
         return answer;
     }
+
+    public int[] separateDigits3(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int num : nums) {
+            sb.append(num);
+        }
+
+        String digitsAsString = sb.toString();
+        int n = digitsAsString.length();
+        int[] answer = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            answer[i] = digitsAsString.charAt(i) - '0';
+        }
+
+        return answer;
+    }
 }
