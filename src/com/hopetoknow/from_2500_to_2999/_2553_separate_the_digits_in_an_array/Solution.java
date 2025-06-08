@@ -82,4 +82,28 @@ class Solution {
 
         return answer;
     }
+
+    public int[] separateDigits4(int[] nums) {
+        int n = 0;
+
+        for (int num : nums) {
+            while (num > 0) {
+                n++;
+                num /= 10;
+            }
+        }
+
+        int[] answer = new int[n];
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int num = nums[i];
+
+            while (num > 0) {
+                answer[--n] = num % 10;
+                num /= 10;
+            }
+        }
+
+        return answer;
+    }
 }
