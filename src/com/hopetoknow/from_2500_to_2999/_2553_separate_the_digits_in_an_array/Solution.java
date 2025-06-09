@@ -106,4 +106,28 @@ class Solution {
 
         return answer;
     }
+
+    public int[] separateDigits5(int[] nums) {
+        int n = 0;
+
+        for (int num : nums) {
+            n += (int) Math.log10(num) + 1;
+        }
+
+        int[] answer = new int[n];
+        int rightIndex = 0;
+
+        for (int num : nums) {
+            int digitCount = (int) Math.log10(num) + 1;
+            int leftIndex = rightIndex;
+            rightIndex += digitCount;
+
+            for (int i = rightIndex - 1; i >= leftIndex; i--) {
+                answer[i] = num % 10;
+                num /= 10;
+            }
+        }
+
+        return answer;
+    }
 }
