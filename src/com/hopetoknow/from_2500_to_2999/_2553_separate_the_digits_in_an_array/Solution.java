@@ -130,4 +130,27 @@ class Solution {
 
         return answer;
     }
+
+    public int[] separateDigits6(int[] nums) {
+        int n = 0;
+
+        for (int num : nums) {
+            n += (int) Math.log10(num) + 1;
+        }
+
+        int[] answer = new int[n];
+        int index = 0;
+
+        for (int num : nums) {
+            int digitCount = (int) Math.log10(num) + 1;
+            index += digitCount;
+
+            for (int i = 0; i < digitCount; i++) {
+                answer[index - 1 - i] = num % 10;
+                num /= 10;
+            }
+        }
+
+        return answer;
+    }
 }
