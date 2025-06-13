@@ -23,4 +23,24 @@ class Solution {
 
         return num1 + num2;
     }
+
+    public int splitNum2(int originalNumber) {
+        char[] digits = Integer.toString(originalNumber).toCharArray();
+        Arrays.sort(digits);
+
+        int num1 = 0;
+        int num2 = 0;
+
+        for (int i = 0; i < digits.length; i++) {
+            int digit = digits[i] - '0';
+
+            if (i % 2 == 0) {
+                num1 = num1 * 10 + digit;
+            } else {
+                num2 = num2 * 10 + digit;
+            }
+        }
+
+        return num1 + num2;
+    }
 }
