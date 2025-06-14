@@ -43,4 +43,18 @@ class Solution {
 
         return num1 + num2;
     }
+
+    public int splitNum3(int originalNumber) {
+        char[] digits = Integer.toString(originalNumber).toCharArray();
+        Arrays.sort(digits);
+
+        int[] nums = new int[2];
+
+        for (int i = 0; i < digits.length; i++) {
+            int digit = digits[i] - '0';
+            nums[i & 1] = nums[i & 1] * 10 + digit;
+        }
+
+        return nums[0] + nums[1];
+    }
 }
