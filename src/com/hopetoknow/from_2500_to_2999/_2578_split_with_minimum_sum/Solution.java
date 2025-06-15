@@ -57,4 +57,32 @@ class Solution {
 
         return nums[0] + nums[1];
     }
+
+    public int splitNum4(int originalNumber) {
+        int[] freq = new int[10];
+
+        while (originalNumber > 0) {
+            freq[originalNumber % 10]++;
+            originalNumber /= 10;
+        }
+
+        int num1 = 0;
+        int num2 = 0;
+        boolean isNum1Turn = true;
+
+        for (int i = 0; i < freq.length; i++) {
+            while (freq[i] > 0) {
+                if (isNum1Turn) {
+                    num1 = num1 * 10 + i;
+                } else {
+                    num2 = num2 * 10 + i;
+                }
+
+                isNum1Turn = !isNum1Turn;
+                freq[i]--;
+            }
+        }
+
+        return num1 + num2;
+    }
 }
