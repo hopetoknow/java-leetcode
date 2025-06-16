@@ -85,4 +85,32 @@ class Solution {
 
         return num1 + num2;
     }
+
+    public int splitNum5(int originalNumber) {
+        int[] freq = new int[10];
+
+        while (originalNumber > 0) {
+            freq[originalNumber % 10]++;
+            originalNumber /= 10;
+        }
+
+        int num1 = 0;
+        int num2 = 0;
+        int turn = 0;
+
+        for (int i = 0; i < freq.length; i++) {
+            while (freq[i] > 0) {
+                if (turn % 2 == 0) {
+                    num1 = num1 * 10 + i;
+                } else {
+                    num2 = num2 * 10 + i;
+                }
+
+                freq[i]--;
+                turn++;
+            }
+        }
+
+        return num1 + num2;
+    }
 }
