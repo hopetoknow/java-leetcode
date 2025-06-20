@@ -1,5 +1,7 @@
 package com.hopetoknow.from_3000_to_3499._3423_maximum_difference_between_adjacent_elements_in_a_circular_array;
 
+import java.util.stream.IntStream;
+
 class Solution {
     public int maxAdjacentDistance(int[] nums) {
         int n = nums.length;
@@ -21,5 +23,14 @@ class Solution {
         }
 
         return max;
+    }
+
+    public int maxAdjacentDistance3(int[] nums) {
+        int n = nums.length;
+
+        return IntStream.range(0, n)
+                .map(i -> Math.abs(nums[i] - nums[(i + 1) % n]))
+                .max()
+                .getAsInt();
     }
 }
