@@ -1,0 +1,31 @@
+package com.hopetoknow.from_0000_to_0499._0349_intersection_of_two_arrays;
+
+import java.util.HashSet;
+import java.util.Set;
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = new HashSet<>();
+
+        for (int num : nums1) {
+            set1.add(num);
+        }
+
+        Set<Integer> resultSet = new HashSet<>();
+
+        for (int num : nums2) {
+            if (set1.contains(num)) {
+                resultSet.add(num);
+            }
+        }
+
+        int[] ans = new int[resultSet.size()];
+        int i = 0;
+
+        for (int num : resultSet) {
+            ans[i++] = num;
+        }
+
+        return ans;
+    }
+}
