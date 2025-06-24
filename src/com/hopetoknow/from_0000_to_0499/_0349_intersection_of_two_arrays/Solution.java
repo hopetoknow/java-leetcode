@@ -3,6 +3,7 @@ package com.hopetoknow.from_0000_to_0499._0349_intersection_of_two_arrays;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
@@ -36,6 +37,17 @@ class Solution {
         for (int num : nums1) {
             set1.add(num);
         }
+
+        return Arrays.stream(nums2)
+                .distinct()
+                .filter(set1::contains)
+                .toArray();
+    }
+
+    public int[] intersection3(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = Arrays.stream(nums1)
+                .boxed()
+                .collect(Collectors.toSet());
 
         return Arrays.stream(nums2)
                 .distinct()
