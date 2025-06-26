@@ -81,4 +81,23 @@ class Solution {
 
         return ans;
     }
+
+    public int[] intersection5(int[] nums1, int[] nums2) {
+        boolean[] seen = new boolean[1001];
+
+        for (int num : nums1) {
+            seen[num] = true;
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int num : nums2) {
+            if (seen[num]) {
+                ans.add(num);
+                seen[num] = false;
+            }
+        }
+
+        return ans.stream().mapToInt(Integer::intValue).toArray();
+    }
 }
