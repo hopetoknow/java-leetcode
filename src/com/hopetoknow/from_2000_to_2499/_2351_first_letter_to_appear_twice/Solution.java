@@ -1,0 +1,20 @@
+package com.hopetoknow.from_2000_to_2499._2351_first_letter_to_appear_twice;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public char repeatedCharacter(String s) {
+        Map<Character, Integer> freq = new HashMap<>();
+
+        for (char ch : s.toCharArray()) {
+            freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+
+            if (freq.get(ch) == 2) {
+                return ch;
+            }
+        }
+
+        return 'a';
+    }
+}
