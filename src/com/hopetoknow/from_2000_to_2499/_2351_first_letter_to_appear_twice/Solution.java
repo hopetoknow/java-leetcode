@@ -47,4 +47,20 @@ class Solution {
 
         return 'a';
     }
+
+    public char repeatedCharacter4(String s) {
+        int seen = 0;
+
+        for (char ch : s.toCharArray()) {
+            int bit = 1 << (ch - 'a');
+
+            if ((seen & bit) != 0) {
+                return ch;
+            }
+
+            seen |= bit;
+        }
+
+        return 'a';
+    }
 }
