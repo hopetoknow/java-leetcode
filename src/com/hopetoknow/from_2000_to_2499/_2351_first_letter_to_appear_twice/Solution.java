@@ -63,4 +63,18 @@ class Solution {
 
         return 'a';
     }
+
+    public char repeatedCharacter5(String s) {
+        int[] freq = new int[26];
+
+        for (char ch : s.toCharArray()) {
+            int index = ch - 'a';
+
+            if (++freq[index] == 2) {
+                return ch;
+            }
+        }
+
+        return 'a';
+    }
 }
