@@ -77,4 +77,19 @@ class Solution {
 
         return 'a';
     }
+
+    public char repeatedCharacter6(String s) {
+        int seen = 0;
+
+        for (int i = 0;; i++) {
+            char ch = s.charAt(i);
+            int index = ch - 'a';
+
+            if ((seen >> index & 1) == 1) {
+                return ch;
+            }
+
+            seen |= 1 << index;
+        }
+    }
 }
