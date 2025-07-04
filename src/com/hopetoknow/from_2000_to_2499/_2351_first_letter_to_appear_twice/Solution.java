@@ -92,4 +92,14 @@ class Solution {
             seen |= 1 << index;
         }
     }
+
+    public char repeatedCharacter7(String s) {
+        Set<Character> seen = new HashSet<>();
+
+        return s.chars()
+                .mapToObj(ch -> (char) ch)
+                .filter(ch -> !seen.add(ch))
+                .findFirst()
+                .orElse('a');
+    }
 }
