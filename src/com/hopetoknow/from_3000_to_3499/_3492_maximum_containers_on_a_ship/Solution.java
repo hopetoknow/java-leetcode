@@ -10,4 +10,8 @@ class Solution {
 
         return n * n;
     }
+
+    public int maxContainers2(int n, int w, int maxWeight) {
+        return Math.min(n * n * w, maxWeight) / w;
+    }
 }
