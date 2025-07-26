@@ -14,4 +14,11 @@ class Solution {
     public int maxContainers2(int n, int w, int maxWeight) {
         return Math.min(n * n * w, maxWeight) / w;
     }
+
+    public int maxContainers3(int n, int w, int maxWeight) {
+        int maxByDeck = n * n;
+        int maxByWeight = maxWeight / w;
+
+        return Math.min(maxByDeck, maxByWeight);
+    }
 }
