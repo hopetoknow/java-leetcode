@@ -15,4 +15,11 @@ class Solution {
     public boolean checkTwoChessboards2(String coordinate1, String coordinate2) {
         return (coordinate1.charAt(0) + coordinate1.charAt(1)) % 2 == (coordinate2.charAt(0) + coordinate2.charAt(1)) % 2;
     }
+
+    public boolean checkTwoChessboards3(String coordinate1, String coordinate2) {
+        int xor1 = coordinate1.charAt(0) ^ coordinate1.charAt(1);
+        int xor2 = coordinate2.charAt(0) ^ coordinate2.charAt(1);
+
+        return (xor1 % 2) == (xor2 % 2);
+    }
 }
