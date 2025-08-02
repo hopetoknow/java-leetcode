@@ -1,5 +1,7 @@
 package com.hopetoknow.from_2500_to_2999._2558_take_gifts_from_the_richest_pile;
 
+import java.util.PriorityQueue;
+
 class Solution {
     public long pickGifts(int[] gifts, int k) {
         for (int i = 0; i < k; i++) {
@@ -19,6 +21,26 @@ class Solution {
         long totalGifts = 0;
 
         for (int pile : gifts) {
+            totalGifts += pile;
+        }
+
+        return totalGifts;
+    }
+
+    public long pickGifts2(int[] gifts, int k) {
+        PriorityQueue<Integer> giftsQueue = new PriorityQueue<>((a, b) -> b - a);
+
+        for (int pile : gifts) {
+            giftsQueue.add(pile);
+        }
+
+        while (k-- > 0) {
+            giftsQueue.add((int) Math.sqrt(giftsQueue.poll()));
+        }
+
+        long totalGifts = 0;
+
+        for (int pile : giftsQueue) {
             totalGifts += pile;
         }
 
