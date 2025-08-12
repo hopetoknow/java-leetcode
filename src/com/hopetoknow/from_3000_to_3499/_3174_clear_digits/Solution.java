@@ -1,5 +1,8 @@
 package com.hopetoknow.from_3000_to_3499._3174_clear_digits;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 class Solution {
     public String clearDigits(String s) {
         if (s.length() == 1) {
@@ -35,5 +38,25 @@ class Solution {
         }
 
         return result.toString();
+    }
+
+    public String clearDigits3(String s) {
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                stack.pop();
+            } else {
+                stack.push(ch);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        while (!stack.isEmpty()) {
+            result.append(stack.pop());
+        }
+
+        return result.reverse().toString();
     }
 }
