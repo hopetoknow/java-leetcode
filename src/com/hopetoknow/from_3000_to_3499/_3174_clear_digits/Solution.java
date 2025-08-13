@@ -59,4 +59,19 @@ class Solution {
 
         return result.reverse().toString();
     }
+
+    public String clearDigits4(String s) {
+        char[] charArray = new char[s.length()];
+        int index = 0;
+
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                index--;
+            } else {
+                charArray[index++] = ch;
+            }
+        }
+
+        return new String(charArray, 0 , index);
+    }
 }
