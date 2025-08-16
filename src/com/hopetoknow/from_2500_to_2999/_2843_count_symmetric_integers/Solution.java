@@ -33,4 +33,39 @@ class Solution {
 
         return sum1 == sum2;
     }
+
+    public int countSymmetricIntegers2(int low, int high) {
+        int count = 0;
+
+        for (int num = low; num <= high; num++) {
+            int length = (int)Math.log10(num) + 1;
+
+            if (length % 2 != 0) {
+                continue;
+            }
+
+            int half = length / 2;
+            int pow = (int) Math.pow(10, half);
+
+            int left = num / pow;
+            int right = num % pow;
+
+            if (sumOfDigits(left) == sumOfDigits(right)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private int sumOfDigits(int num) {
+        int sum = 0;
+
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+
+        return sum;
+    }
 }
