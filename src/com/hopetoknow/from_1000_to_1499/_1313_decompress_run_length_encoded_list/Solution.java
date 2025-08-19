@@ -22,4 +22,24 @@ class Solution {
 
         return decompressedArray;
     }
+
+    public int[] decompressRLElist2(int[] nums) {
+        int numsLength = nums.length;
+        int finalLength = 0;
+
+        for (int i = 0; i < numsLength; i += 2) {
+            finalLength += nums[i];
+        }
+
+        int[] decompressedArray = new int[finalLength];
+        int index = 0;
+
+        for (int i = 0; i < numsLength; i += 2) {
+            for (int j = 0; j < nums[i]; j++) {
+                decompressedArray[index++] = nums[i + 1];
+            }
+        }
+
+        return decompressedArray;
+    }
 }
