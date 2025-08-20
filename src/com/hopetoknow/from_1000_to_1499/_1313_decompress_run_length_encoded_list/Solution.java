@@ -1,6 +1,7 @@
 package com.hopetoknow.from_1000_to_1499._1313_decompress_run_length_encoded_list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Solution {
@@ -39,6 +40,13 @@ class Solution {
                 decompressedArray[index++] = nums[i + 1];
             }
         }
+
+//        Alternative approach using Arrays.fill() method:
+//
+//        for (int i = 0; i < numsLength; i += 2) {
+//            Arrays.fill(decompressedArray, index, index + nums[i], nums[i + 1]);
+//            index += nums[i];
+//        }
 
         return decompressedArray;
     }
