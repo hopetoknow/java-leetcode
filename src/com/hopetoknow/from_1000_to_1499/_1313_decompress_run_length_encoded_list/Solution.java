@@ -21,6 +21,9 @@ class Solution {
             decompressedArray[i] = decompressedList.get(i);
         }
 
+//        Alternative approach using Arrays.setAll();
+//        Arrays.setAll(decompressedArray, decompressedList::get);
+
         return decompressedArray;
     }
 
