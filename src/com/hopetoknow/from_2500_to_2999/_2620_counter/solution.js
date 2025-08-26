@@ -20,6 +20,8 @@ var createCounter3 = function(n) {
     return () => n++;
 };
 
+var createCounter4 = (n) => () => n++;
+
 /**
  * const counter = createCounter(10)
  * counter() // 10
