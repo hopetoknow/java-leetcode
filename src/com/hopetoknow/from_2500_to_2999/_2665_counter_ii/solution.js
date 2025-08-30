@@ -26,6 +26,25 @@ var createCounter = function(init) {
     return new Counter(init);
 };
 
+var createCounter2 = function(init) {
+    let value = init;
+
+    function increment() {
+        return ++value;
+    }
+
+    function decrement() {
+        return --value;
+    }
+
+    function reset() {
+        value = init;
+        return value;
+    }
+
+    return { increment, decrement, reset };
+};
+
 /**
  * const counter = createCounter(5)
  * counter.increment(); // 6
