@@ -45,6 +45,16 @@ var createCounter2 = function(init) {
     return { increment, decrement, reset };
 };
 
+var createCounter3 = function(init) {
+    let value = init;
+
+    return {
+        increment: () => ++value;
+        decrement: () => --value;
+        reset: () => (value = init);
+    };
+};
+
 /**
  * const counter = createCounter(5)
  * counter.increment(); // 6
