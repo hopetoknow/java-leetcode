@@ -1,5 +1,6 @@
 package com.hopetoknow.from_3500_to_3999._3668_restore_finishing_order;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,5 +22,20 @@ class Solution {
         }
 
         return result;
+    }
+
+    public int[] recoverOrder2(int[] order, int[] friends) {
+        int n = order.length;
+        int[] position = new int[n + 1];
+
+        for (int i = 0; i < n; ++i) {
+            position[order[i]] = i;
+        }
+
+        return Arrays.stream(friends)
+                .boxed()
+                .sorted((a, b) -> position[a] - position[b])
+                .mapToInt(Integer::intValue)
+                .toArray();
     }
 }
