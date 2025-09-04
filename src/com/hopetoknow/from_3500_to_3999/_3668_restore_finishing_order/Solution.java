@@ -3,6 +3,7 @@ package com.hopetoknow.from_3500_to_3999._3668_restore_finishing_order;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
     public int[] recoverOrder(int[] order, int[] friends) {
@@ -37,5 +38,11 @@ class Solution {
                 .sorted((a, b) -> position[a] - position[b])
                 .mapToInt(Integer::intValue)
                 .toArray();
+    }
+
+    public int[] recoverOrder3(int[] order, int[] friends) {
+        Set<Integer> friendsSet = Arrays.stream(friends).boxed().collect(Collectors.toSet());
+
+        return Arrays.stream(order).filter(friendsSet::contains).toArray();
     }
 }
