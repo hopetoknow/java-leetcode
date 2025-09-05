@@ -1,6 +1,7 @@
 package com.hopetoknow.from_3500_to_3999._3668_restore_finishing_order;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -35,7 +36,8 @@ class Solution {
 
         return Arrays.stream(friends)
                 .boxed()
-                .sorted((a, b) -> position[a] - position[b])
+                .sorted(Comparator.comparingInt(a -> position[a]))
+//              .sorted((a, b) -> position[a] - position[b])
                 .mapToInt(Integer::intValue)
                 .toArray();
     }
