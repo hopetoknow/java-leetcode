@@ -18,6 +18,6 @@ class Solution {
     public int evenNumberBitwiseORs2(int[] nums) {
         return Arrays.stream(nums)
                 .filter(num -> num % 2 == 0)
-                .reduce(1, (a, b) -> a | b);
+                .reduce(0, (a, b) -> a | b);
     }
 }
