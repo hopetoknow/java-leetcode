@@ -14,4 +14,14 @@ class Solution {
 
         return sum;
     }
+
+    public int alternatingSum2(int[] nums) {
+        int sum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            sum += (i & 1) == 0 ? nums[i] : -nums[i];
+        }
+
+        return sum;
+    }
 }
