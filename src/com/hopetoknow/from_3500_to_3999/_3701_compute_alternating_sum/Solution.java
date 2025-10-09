@@ -24,4 +24,15 @@ class Solution {
 
         return sum;
     }
+
+    public int alternatingSum3(int[] nums) {
+        int sum = 0, sign = 1;
+
+        for (int num : nums) {
+            sum += num * sign;
+            sign = -sign;
+        }
+
+        return sum;
+    }
 }
