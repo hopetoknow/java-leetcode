@@ -1,5 +1,8 @@
 package com.hopetoknow.from_3500_to_3999._3701_compute_alternating_sum;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 class Solution {
     public int alternatingSum(int[] nums) {
         int sum = 0;
@@ -34,5 +37,11 @@ class Solution {
         }
 
         return sum;
+    }
+
+    public int alternatingSum4(int[] nums) {
+        return IntStream.range(0, nums.length)
+                .map(i -> (i & 1) == 0 ? nums[i] : -nums[i])
+                .sum();
     }
 }
