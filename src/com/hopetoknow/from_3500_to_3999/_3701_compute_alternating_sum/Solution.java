@@ -1,6 +1,5 @@
 package com.hopetoknow.from_3500_to_3999._3701_compute_alternating_sum;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 class Solution {
