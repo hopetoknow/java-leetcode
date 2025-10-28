@@ -78,4 +78,12 @@ class Solution {
 
         return nums;
     }
+
+    public int[] sortArrayByParity5(int[] nums) {
+        return IntStream.of(nums)
+                .boxed()
+                .sorted((a, b) -> Integer.compare(a & 1, b & 1))
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
 }
