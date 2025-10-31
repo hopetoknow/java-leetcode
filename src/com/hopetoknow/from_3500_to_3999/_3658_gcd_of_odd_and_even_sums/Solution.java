@@ -4,4 +4,18 @@ class Solution {
     public int gcdOfOddEvenSums(int n) {
         return n;
     }
+
+    public int gcdOfOddEvenSums2(int n) {
+        int sumOdd = n * n;
+        int sumEven = n * (n + 1);
+        return n * gcd2(n, n + 1);
+    }
+
+    private int gcd2(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+
+        return gcd2(b, a % b);
+    }
 }
