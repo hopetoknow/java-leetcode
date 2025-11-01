@@ -18,4 +18,20 @@ class Solution {
 
         return gcd2(b, a % b);
     }
+
+    public int gcdOfOddEvenSums3(int n) {
+        int sumOdd = n * n;
+        int sumEven = n * (n + 1);
+        return gcd3(sumOdd, sumEven);
+    }
+
+    private int gcd3(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        return a;
+    }
 }
