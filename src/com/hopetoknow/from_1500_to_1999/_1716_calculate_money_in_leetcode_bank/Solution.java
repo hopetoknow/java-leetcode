@@ -16,4 +16,20 @@ class Solution {
 
         return total;
     }
+
+    public int totalMoney2(int n) {
+        int total = 0;
+        int mondayMoney  = 1;
+
+        while (n > 0) {
+            for (int day = 0; day < Math.min(7, n); day++) {
+                total += mondayMoney + day;
+            }
+
+            n -= 7;
+            mondayMoney++;
+        }
+
+        return total;
+    }
 }
