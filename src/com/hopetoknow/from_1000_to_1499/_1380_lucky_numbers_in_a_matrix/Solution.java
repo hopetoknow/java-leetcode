@@ -41,4 +41,41 @@ class Solution {
 
         return luckyNumbers;
     }
+
+    public List<Integer> luckyNumbers2(int[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+
+        int[] rowMins = new int[rows];
+
+        for (int row = 0; row < rows; row++) {
+            int minIndex = 0;
+
+            for (int column = 1; column < columns; column++) {
+                if (matrix[row][column] < matrix[row][minIndex]) {
+                    minIndex = column;
+                }
+            }
+
+            rowMins[row] = minIndex;
+        }
+
+        List<Integer> luckyNumbers = new ArrayList<>();
+
+        for (int column = 0; column < columns; column++) {
+            int maxIndex = 0;
+
+            for (int row = 1; row < rows; row++) {
+                if (matrix[row][column] > matrix[maxIndex][column]) {
+                    maxIndex = row;
+                }
+            }
+
+            if (rowMins[maxIndex] == column) {
+                luckyNumbers.add(matrix[maxIndex][column]);
+            }
+        }
+
+        return luckyNumbers;
+    }
 }
