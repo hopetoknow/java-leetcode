@@ -51,4 +51,35 @@ class Solution {
 
         return scores.stream().mapToInt(Integer::intValue).sum();
     }
+
+    public int calPoints3(String[] operations) {
+        int[] scores = new int[operations.length];
+        int index = 0;
+
+        for (String operation : operations) {
+            switch (operation) {
+                case "+":
+                    scores[index] = scores[index - 1] + scores[index - 2];
+                    index++;
+                    break;
+                case "D":
+                    scores[index] = scores[index - 1] * 2;
+                    index++;
+                    break;
+                case "C":
+                    index--;
+                    break;
+                default:
+                    scores[index++] = Integer.parseInt(operation);
+            }
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < index; i++) {
+            sum += scores[i];
+        }
+
+        return sum;
+    }
 }
