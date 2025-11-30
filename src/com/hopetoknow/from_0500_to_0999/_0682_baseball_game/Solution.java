@@ -82,4 +82,32 @@ class Solution {
 
         return sum;
     }
+
+    public int calPoints4(String[] operations) {
+        int[] scores = new int[operations.length];
+        int index = 0;
+
+        for (String op : operations) {
+            switch (op) {
+                case "+" -> {
+                    scores[index] = scores[index - 1] + scores[index - 2];
+                    index++;
+                }
+                case "D" -> {
+                    scores[index] = scores[index - 1] << 1;
+                    index++;
+                }
+                case "C" -> index--;
+                default -> scores[index++] = Integer.parseInt(op);
+            }
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < index; i++) {
+            sum += scores[i];
+        }
+
+        return sum;
+    }
 }
