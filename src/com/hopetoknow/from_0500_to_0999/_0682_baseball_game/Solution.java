@@ -110,4 +110,33 @@ class Solution {
 
         return sum;
     }
+
+    public int calPoints5(String[] operations) {
+        int[] scores = new int[operations.length];
+        int sum = 0;
+        int index = 0;
+
+        for (String op : operations) {
+            sum += switch (op) {
+                case "+" -> {
+                    int newScore = scores[index - 1] + scores[index - 2];
+                    scores[index++] = newScore;
+                    yield newScore;
+                }
+                case "D" -> {
+                    int newScore = scores[index - 1] << 1;
+                    scores[index++] = newScore;
+                    yield newScore;
+                }
+                case "C" -> -scores[--index];
+                default -> {
+                    int newScore = Integer.parseInt(op);
+                    scores[index++] = newScore;
+                    yield newScore;
+                }
+            };
+        }
+
+        return sum;
+    }
 }
