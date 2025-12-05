@@ -25,8 +25,16 @@ class Solution {
                 seen[index] = true;
                 count++;
             }
+
+            if (count == 26) {
+                return 26;
+            }
         }
 
         return count;
+    }
+
+    public int maxDistinct3(String s) {
+        return (int)s.chars().distinct().count();
     }
 }
