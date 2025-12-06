@@ -37,4 +37,14 @@ class Solution {
     public int maxDistinct3(String s) {
         return (int)s.chars().distinct().count();
     }
+
+    public int maxDistinct4(String s) {
+        int mask = 0;
+
+        for (char ch : s.toCharArray()) {
+            mask |= 1 << ch - 'a';
+        }
+
+        return Integer.bitCount(mask);
+    }
 }
