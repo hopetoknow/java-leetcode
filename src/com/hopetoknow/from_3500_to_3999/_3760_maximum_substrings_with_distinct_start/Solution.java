@@ -47,4 +47,21 @@ class Solution {
 
         return Integer.bitCount(mask);
     }
+
+    public int maxDistinct5(String s) {
+        int[] freq = new int[26];
+        int count = 0;
+
+        for (char ch : s.toCharArray()) {
+            if (freq[ch - 'a']++ == 0) {
+                count++;
+            }
+
+            if (count == 26) {
+                return 26;
+            }
+        }
+
+        return count;
+    }
 }
