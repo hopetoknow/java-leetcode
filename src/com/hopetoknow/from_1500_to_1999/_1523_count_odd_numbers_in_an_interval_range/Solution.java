@@ -12,4 +12,14 @@ class Solution {
 
         return count;
     }
+
+    public int countOdds2(int low, int high) {
+        int delta = (high - low) / 2;
+
+        if ((low & 1) == 1 || (high & 1) == 1) {
+            delta ++;
+        }
+
+        return delta;
+    }
 }
