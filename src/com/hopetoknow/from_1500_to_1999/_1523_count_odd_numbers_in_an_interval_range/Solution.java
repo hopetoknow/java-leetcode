@@ -22,4 +22,8 @@ class Solution {
 
         return delta;
     }
+
+    public int countOdds3(int low, int high) {
+        return (high + 1) / 2 - low / 2;
+    }
 }
