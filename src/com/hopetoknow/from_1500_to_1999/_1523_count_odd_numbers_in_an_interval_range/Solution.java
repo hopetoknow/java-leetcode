@@ -26,4 +26,8 @@ class Solution {
     public int countOdds3(int low, int high) {
         return (high + 1) / 2 - low / 2;
     }
+
+    public int countOdds4(int low, int high) {
+        return ((high + 1) >> 1) - (low >> 1);
+    }
 }
