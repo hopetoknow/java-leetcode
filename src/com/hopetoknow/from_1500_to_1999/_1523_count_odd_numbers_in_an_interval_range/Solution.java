@@ -30,4 +30,16 @@ class Solution {
     public int countOdds4(int low, int high) {
         return ((high + 1) >> 1) - (low >> 1);
     }
+
+    public int countOdds5(int low, int high) {
+        int totalCount = high - low + 1;
+
+        int oddCount = totalCount / 2;
+
+        if ((totalCount & 1) == 1 && (low & 1) == 1) {
+            oddCount++;
+        }
+
+        return oddCount;
+    }
 }
