@@ -27,4 +27,26 @@ class Solution {
 
         return ans;
     }
+
+    public List<Integer> findMissingElements2(int[] nums) {
+        Set<Integer> numsAsSet = new HashSet<>();
+        int smallest = 101;
+        int largest = 0;
+
+        for (int num : nums) {
+            numsAsSet.add(num);
+            smallest = Math.min(smallest, num);
+            largest = Math.max(largest, num);
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = smallest + 1; i < largest; i++) {
+            if (!numsAsSet.contains(i)) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
 }
