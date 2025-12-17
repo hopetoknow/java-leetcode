@@ -49,4 +49,26 @@ class Solution {
 
         return ans;
     }
+
+    public List<Integer> findMissingElements3(int[] nums) {
+        boolean[] present = new boolean[101];
+        int smallest = 101;
+        int largest = 0;
+
+        for (int num : nums) {
+            present[num] = true;
+            smallest = Math.min(smallest, num);
+            largest = Math.max(largest, num);
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = smallest + 1; i < largest; i++) {
+            if (!present[i]) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
 }
