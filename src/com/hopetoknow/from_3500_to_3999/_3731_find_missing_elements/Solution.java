@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class Solution {
     public List<Integer> findMissingElements(int[] nums) {
@@ -70,5 +72,17 @@ class Solution {
         }
 
         return ans;
+    }
+
+    public List<Integer> findMissingElements4(int[] nums) {
+        int smallest = Arrays.stream(nums).min().getAsInt();
+        int largest = Arrays.stream(nums).max().getAsInt();
+
+        Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+
+        return IntStream.range(smallest + 1, largest)
+                .filter(i -> (!numSet.contains(i)))
+                .boxed()
+                .toList();
     }
 }
