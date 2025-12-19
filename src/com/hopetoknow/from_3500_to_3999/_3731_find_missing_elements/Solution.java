@@ -85,4 +85,20 @@ class Solution {
                 .boxed()
                 .toList();
     }
+
+    public List<Integer> findMissingElements5(int[] nums) {
+        Arrays.sort(nums);
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 1; i < nums.length; i++) {
+            int prev = nums[i - 1];
+            int curr = nums[i];
+
+            for (int num = prev + 1; num < curr; num++) {
+                ans.add(num);
+            }
+        }
+
+        return ans;
+    }
 }
