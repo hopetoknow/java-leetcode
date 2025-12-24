@@ -2,6 +2,7 @@ package com.hopetoknow.from_3500_to_3999._3731_find_missing_elements;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -96,6 +97,28 @@ class Solution {
 
             for (int num = prev + 1; num < curr; num++) {
                 ans.add(num);
+            }
+        }
+
+        return ans;
+    }
+
+    public List<Integer> findMissingElements6(int[] nums) {
+        BitSet present = new BitSet();
+        int smallest = 101;
+        int largest = 0;
+
+        for (int num : nums) {
+            present.set(num);
+            smallest = Math.min(smallest, num);
+            largest = Math.max(largest, num);
+        }
+
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = smallest + 1; i < largest; i++) {
+            if (!present.get(i)) {
+                ans.add(i);
             }
         }
 
