@@ -12,4 +12,19 @@ class Solution {
 
         return Math.abs(n - reversed);
     }
+    public int mirrorDistance2(int n) {
+        return Math.abs(n - reverse(n));
+    }
+
+    private int reverse(int num) {
+        int reversed = 0;
+
+        while (num > 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+
+        return reversed;
+    }
+
 }
