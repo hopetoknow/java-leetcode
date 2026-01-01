@@ -12,6 +12,7 @@ class Solution {
 
         return Math.abs(n - reversed);
     }
+
     public int mirrorDistance2(int n) {
         return Math.abs(n - reverse(n));
     }
@@ -27,4 +28,11 @@ class Solution {
         return reversed;
     }
 
+    public int mirrorDistance3(int n) {
+        String str = String.valueOf(n);
+        String reversedStr = new StringBuilder(str).reverse().toString();
+        int reversed = Integer.parseInt(reversedStr);
+
+        return Math.abs(n - reversed);
+    }
 }
