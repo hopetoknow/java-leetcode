@@ -14,10 +14,10 @@ class Solution {
     }
 
     public int mirrorDistance2(int n) {
-        return Math.abs(n - reverse(n));
+        return Math.abs(n - reverse2(n));
     }
 
-    private int reverse(int num) {
+    private int reverse2(int num) {
         int reversed = 0;
 
         while (num > 0) {
@@ -34,5 +34,16 @@ class Solution {
         int reversed = Integer.parseInt(reversedStr);
 
         return Math.abs(n - reversed);
+    }
+
+    public int mirrorDistance4(int n) {
+        return Math.abs(n - reverse4(n));
+    }
+
+    private int reverse4(int n) {
+        String str = String.valueOf(n);
+        String reversedStr = new StringBuilder(str).reverse().toString();
+
+        return Integer.parseInt(reversedStr);
     }
 }
