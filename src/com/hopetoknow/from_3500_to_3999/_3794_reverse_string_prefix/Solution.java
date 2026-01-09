@@ -5,7 +5,19 @@ class Solution {
         return new StringBuilder()
                 .append(s, 0, k)
                 .reverse()
-                .append(s.substring(k))
+                .append(s, k, s.length())
                 .toString();
+    }
+
+    public String reversePrefix2(String s, int k) {
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < k / 2; i++) {
+             char temp = chars[i];
+             chars[i] = chars[k - 1 - i];
+             chars[k - 1 - i] = temp;
+        }
+
+        return new String(chars);
     }
 }
