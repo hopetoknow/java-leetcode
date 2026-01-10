@@ -20,4 +20,17 @@ class Solution {
 
         return new String(chars);
     }
+
+    public String reversePrefix3(String s, int k) {
+        char[] chars = s.toCharArray();
+        int left = 0, right = k - 1;
+
+        while (left < right) {
+            char temp = chars[left];
+            chars[left++] = chars[right];
+            chars[right--] = temp;
+        }
+
+        return new String(chars);
+    }
 }
