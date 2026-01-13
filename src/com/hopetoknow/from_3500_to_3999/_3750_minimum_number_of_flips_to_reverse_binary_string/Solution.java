@@ -14,4 +14,18 @@ class Solution {
 
         return count;
     }
+
+    public int minimumFlips2(int n) {
+        String binary = Integer.toBinaryString(n);
+        int len = binary.length();
+        int count = 0;
+
+        for (int i = 0; i < len / 2; i++) {
+            if (binary.charAt(i) != binary.charAt(len - 1 - i)) {
+                count++;
+            }
+        }
+
+        return count * 2;
+    }
 }
