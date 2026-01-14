@@ -28,4 +28,29 @@ class Solution {
 
         return count * 2;
     }
+
+    public int minimumFlips3(int n) {
+        String binary = toBinaryString(n);
+        int len = binary.length();
+        int count = 0;
+
+        for (int i = 0; i < len / 2; i++) {
+            if (binary.charAt(i) != binary.charAt(len - 1 - i)) {
+                count++;
+            }
+        }
+
+        return count * 2;
+    }
+
+    private String toBinaryString(int n) {
+        StringBuilder binary = new StringBuilder();
+
+        while (n > 0) {
+            binary.append(n % 2);
+            n /= 2;
+        }
+
+        return binary.reverse().toString();
+    }
 }
