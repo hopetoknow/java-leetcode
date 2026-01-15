@@ -51,6 +51,29 @@ class Solution {
             n /= 2;
         }
 
+//        while (n > 0) {
+//            binary.append(n & 1);
+//            n >>= 1;
+//        }
+
         return binary.reverse().toString();
+    }
+
+    public int minimumFlips4(int n) {
+        int nCopy = n;
+        int left = 0, right = -1, count = 0;
+
+        while (nCopy > 0) {
+            nCopy >>= 1;
+            right++;
+        }
+
+        while (left < right) {
+            count += ((n >> left) & 1) ^ ((n >> right) & 1);
+            left++;
+            right--;
+        }
+
+        return count * 2;
     }
 }
