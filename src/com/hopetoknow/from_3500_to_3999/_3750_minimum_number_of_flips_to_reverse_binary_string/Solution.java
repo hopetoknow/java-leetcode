@@ -76,4 +76,20 @@ class Solution {
 
         return count * 2;
     }
+
+    public int minimumFlips5(int n) {
+        int[] bits = new int[32];
+        int left = 0, right = 0, count = 0;
+
+        while (n > 0) {
+            bits[right++] = n & 1;
+            n >>= 1;
+        }
+
+        while (left < right) {
+            count += (bits[left++] ^ bits[--right]);
+        }
+
+        return count * 2;
+    }
 }
