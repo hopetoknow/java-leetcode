@@ -92,4 +92,20 @@ class Solution {
 
         return count * 2;
     }
+
+    public int minimumFlips6(int n) {
+        int highBit = 31 - Integer.numberOfLeadingZeros(n);
+        int count = 0;
+
+        for (int i = 0; i <= highBit / 2; i++) {
+            int leftBit = (n >> i) & 1;
+            int rightBit = (n >> (highBit - i)) & 1;
+
+            if (leftBit != rightBit) {
+                count++;
+            }
+        }
+
+        return count * 2;
+    }
 }
