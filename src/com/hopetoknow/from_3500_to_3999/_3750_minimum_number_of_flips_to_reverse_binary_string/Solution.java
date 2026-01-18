@@ -108,4 +108,17 @@ class Solution {
 
         return count * 2;
     }
+
+    public int minimumFlips7(int n) {
+        int bitCount  = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        int reversed = 0;
+        int nCopy = n;
+
+        for (int i = 0; i < bitCount; i++) {
+            reversed = (reversed << 1) | (nCopy & 1);
+            nCopy >>= 1;
+        }
+
+        return Integer.bitCount(n ^ reversed);
+    }
 }
