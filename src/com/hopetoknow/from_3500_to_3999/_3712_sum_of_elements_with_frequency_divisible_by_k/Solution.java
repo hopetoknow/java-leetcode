@@ -11,6 +11,10 @@ class Solution {
             frequencyByNumber.put(num, frequencyByNumber.getOrDefault(num, 0) + 1);
         }
 
+//        for (int num : nums) {
+//            frequencyByNum.merge(num, 1, Integer::sum);
+//        }
+
         int sum = 0;
 
         for (int num : frequencyByNumber.keySet()){
@@ -18,6 +22,24 @@ class Solution {
 
             if (frequency % k == 0) {
                 sum += num * frequency;
+            }
+        }
+
+        return sum;
+    }
+
+    public int sumDivisibleByK2(int[] nums, int k) {
+        int[] frequencies = new int[101];
+
+        for (int num : nums) {
+            frequencies[num]++;
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < frequencies.length; i++){
+            if (frequencies[i] % k == 0) {
+                sum += i * frequencies[i];
             }
         }
 
