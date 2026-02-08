@@ -1,7 +1,10 @@
 package com.hopetoknow.from_3500_to_3999._3712_sum_of_elements_with_frequency_divisible_by_k;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 class Solution {
     public int sumDivisibleByK(int[] nums, int k) {
@@ -44,5 +47,19 @@ class Solution {
         }
 
         return sum;
+    }
+
+    public int sumDivisibleByK3(int[] nums, int k) {
+        return Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(
+                        n -> n,
+                        Collectors.counting()
+                ))
+                .entrySet()
+                .stream()
+                .filter(e -> e.getValue() % k == 0)
+                .mapToInt(e -> e.getKey() * e.getValue().intValue())
+                .sum();
     }
 }
